@@ -29,17 +29,19 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--cloud);color:var(--
 .hpf{height:100%;background:var(--sky);transition:width .5s ease;}
 .nav-tabs{display:flex;background:var(--white);border-bottom:1px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;position:sticky;top:85px;z-index:99;}
 .nav-tabs::-webkit-scrollbar{display:none;}
-.ntab{flex-shrink:0;padding:10px 16px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;color:var(--steel);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;}
+.ntab{flex-shrink:0;padding:10px 14px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;color:var(--steel);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;}
 .ntab.active{color:var(--blue);border-bottom-color:var(--blue);}
 .ntab:hover:not(.active){color:var(--tm);background:var(--cloud);}
 .view{display:none;padding:1rem;}
 .view.active{display:block;}
 .card{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);padding:1rem;margin-bottom:12px;}
+.card.ice{background:var(--ice);border-color:transparent;}
 .ct{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--steel);margin-bottom:10px;}
 .pills{display:flex;gap:6px;margin-bottom:1rem;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;}
 .pills::-webkit-scrollbar{display:none;}
 .pill{flex-shrink:0;padding:5px 12px;border-radius:20px;border:1px solid var(--bm);font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;cursor:pointer;background:var(--white);color:var(--steel);transition:all .15s;text-transform:uppercase;letter-spacing:.03em;}
 .pill.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+/* Calendar */
 .wlabs{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;margin-bottom:4px;}
 .wl{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;color:var(--ts);text-align:center;text-transform:uppercase;}
 .dgrid{display:grid;gap:4px;}
@@ -57,14 +59,17 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--cloud);color:var(--
 .dcd{display:flex;gap:2px;flex-wrap:wrap;margin-top:4px;}
 .dot{width:4px;height:4px;border-radius:50%;background:var(--bm);}
 .dot.on{background:var(--green);}
+/* Stats */
 .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
 .sb{background:var(--ice);border-radius:var(--r);padding:10px 12px;}
 .sv{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--navy);line-height:1;}
 .sl{font-size:11px;color:var(--steel);margin-top:3px;}
+/* Day detail */
 .ddh{display:flex;align-items:center;gap:10px;margin-bottom:1rem;}
 .dbadge{width:44px;height:44px;background:linear-gradient(135deg,var(--blue),var(--navy));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px;color:#fff;flex-shrink:0;}
 .ddt{font-family:'Montserrat',sans-serif;font-size:17px;font-weight:700;color:var(--text);}
 .ddp{font-size:12px;color:var(--blue);margin-top:1px;}
+/* Checklist */
 .cklist{display:flex;flex-direction:column;gap:3px;}
 .ci{display:flex;align-items:flex-start;gap:8px;padding:7px 8px;border-radius:8px;cursor:pointer;transition:background .1s;}
 .ci:hover{background:var(--ice);}
@@ -72,42 +77,40 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--cloud);color:var(--
 .cb.on{background:var(--blue);border-color:var(--blue);}
 .cb.on::after{content:'';display:block;width:5px;height:8px;border:2px solid #fff;border-top:none;border-left:none;transform:rotate(45deg) translate(-1px,-1px);}
 .cil{font-size:13px;color:var(--text);line-height:1.4;}
+/* Sliders */
 .sr{margin-bottom:10px;}
 .sr label{display:flex;justify-content:space-between;font-size:12px;color:var(--tm);margin-bottom:4px;}
 .sr label strong{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--text);}
 input[type=range]{width:100%;height:4px;-webkit-appearance:none;background:var(--cloud);border-radius:2px;outline:none;cursor:pointer;}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--blue);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 4px rgba(11,106,191,.35);}
+/* Inputs */
 input[type=text],input[type=number],textarea,select{width:100%;background:var(--cloud);border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-size:14px;color:var(--text);font-family:'Source Sans 3',sans-serif;outline:none;transition:border-color .15s;-webkit-appearance:none;}
 input[type=text]:focus,input[type=number]:focus,textarea:focus,select:focus{border-color:var(--blue);background:#fff;}
 textarea{resize:none;line-height:1.5;}
 input::placeholder,textarea::placeholder{color:var(--ts);}
+/* Metrics box */
 .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
 .mb{background:var(--ice);border-radius:8px;padding:8px 10px;}
 .mb label{display:block;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--steel);margin-bottom:5px;}
 .mb input{background:transparent;border:none;padding:0;font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:var(--text);width:100%;outline:none;}
 .mb .u{font-size:10px;color:var(--ts);margin-top:1px;}
+/* Reg fields */
 .reg-grid{display:grid;grid-template-columns:1fr;gap:8px;margin-top:8px;}
 .reg-item label{display:block;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;}
 .reg-item.det label{color:#7a4f0a;}
 .reg-item.imp label{color:var(--reddark);}
 .reg-item.sus label{color:var(--gd);}
-.ms{margin-bottom:14px;}
-.mlabel{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--blue);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
-.mi{width:20px;height:20px;background:var(--ice);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:11px;}
+/* Blocks */
 .br{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:6px;}
 .bw{background:var(--ice);border-radius:8px;padding:6px 8px;}
 .bw label{display:block;font-size:9px;font-weight:600;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;font-family:'Montserrat',sans-serif;}
 .bw input{background:transparent;border:none;padding:0;font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:var(--text);width:100%;outline:none;}
+/* Hunger */
 .hr2{display:flex;align-items:center;gap:8px;margin-top:5px;}
 .hr2 label{font-size:12px;color:var(--tm);white-space:nowrap;}
 .hr2 input[type=range]{flex:1;}
 .hv2{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--text);min-width:24px;text-align:right;}
-/* Blocks progress bar */
-.blocks-prog{margin-top:8px;}
-.blocks-prog-label{display:flex;justify-content:space-between;font-size:11px;color:var(--tm);margin-bottom:4px;}
-.blocks-prog-label strong{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);}
-.bpbar{height:8px;background:var(--cloud);border-radius:4px;overflow:hidden;}
-.bpfill{height:100%;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:4px;transition:width .3s ease;}
+/* Buttons */
 .btn{display:block;width:100%;padding:11px;border:none;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.06em;transition:all .15s;text-align:center;}
 .btn-b{background:var(--blue);color:#fff;}
 .btn-b:hover{background:var(--navy);}
@@ -115,8 +118,13 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
 .btn-b:disabled{opacity:.45;cursor:default;}
 .btn-o{background:transparent;color:var(--blue);border:1.5px solid var(--blue);}
 .btn-o:hover{background:var(--ice);}
+.btn-r{background:transparent;color:var(--red);border:1.5px solid var(--red);}
+.btn-r:hover{background:var(--rp);}
+.btn-g{background:var(--green);color:#fff;}
+.btn-g:hover{background:var(--gd);}
 .btn-sm{padding:7px 12px;font-size:11px;width:auto;display:inline-block;}
 .divider{height:1px;background:var(--border);margin:12px 0;}
+/* Markers */
 .mkr{display:flex;justify-content:space-between;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border);}
 .mkr:last-of-type{border-bottom:none;}
 .mkl{flex:1;}
@@ -134,12 +142,12 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
 .sem.y .sem-dot{background:var(--amber);}
 .sem.r .sem-dot{background:var(--red);}
 .sem.i .sem-dot{background:var(--steel);}
-/* Delta box */
+/* Delta */
 .delta-box{margin-top:10px;padding:8px 10px;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;display:flex;align-items:center;gap:8px;}
 .delta-box.g{background:var(--gp);color:var(--gd);}
 .delta-box.y{background:var(--ap);color:#7a4f0a;}
 .delta-box.r{background:var(--rp);color:var(--reddark);}
-/* Cintura semanal */
+/* Cintura */
 .csem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px;}
 .csem-item{background:var(--ice);border-radius:8px;padding:8px 10px;text-align:center;}
 .csem-label{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--steel);margin-bottom:5px;}
@@ -173,14 +181,84 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
 .rdel{position:absolute;top:8px;right:10px;width:22px;height:22px;background:#fee;border:none;border-radius:5px;color:#c33;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
 .arf{background:var(--ice);border-radius:var(--r);padding:12px;margin-bottom:12px;}
 .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
+/* Badge */
 .pb{display:inline-flex;align-items:center;padding:2px 8px;border-radius:10px;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;}
 .pb.ph1{background:var(--gp);color:var(--gd);}
 .pb.ph2{background:var(--ap);color:#7a4f0a;}
 .pb.ph3{background:var(--ice);color:var(--navy);}
+/* === PLAN VIEW === */
+.plan-empty{text-align:center;padding:2.5rem 1rem;color:var(--ts);}
+.plan-empty-icon{font-size:40px;margin-bottom:10px;}
+.plan-empty-title{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--tm);}
+.plan-upload-zone{border:2px dashed var(--bm);border-radius:var(--rl);padding:1.5rem;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:12px;}
+.plan-upload-zone:hover{border-color:var(--blue);background:var(--ice);}
+.plan-upload-zone input{display:none;}
+.plan-upload-title{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--blue);margin-bottom:4px;}
+.plan-upload-sub{font-size:12px;color:var(--ts);}
+.plan-meta{background:var(--gp);border-radius:var(--r);padding:10px 12px;margin-bottom:12px;}
+.plan-meta-title{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gd);margin-bottom:6px;}
+.plan-meta-row{display:flex;justify-content:space-between;font-size:12px;color:var(--gd);padding:2px 0;}
+.plan-error{background:var(--rp);border:1px solid rgba(226,75,74,.3);border-radius:var(--r);padding:10px 12px;margin-bottom:8px;font-size:12px;color:var(--reddark);}
+.plan-error-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
+/* === COMIDAS EJECUTADAS === */
+.meal-card{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);margin-bottom:16px;overflow:hidden;}
+.meal-card-head{padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border);}
+.meal-card-icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.meal-card-icon.desayuno{background:#FEF3DC;}
+.meal-card-icon.comida{background:#E1F5EE;}
+.meal-card-icon.cena{background:#E8F1FA;}
+.meal-card-icon.snack{background:#F3E8FF;}
+.meal-card-title{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--text);}
+.meal-card-sub{font-size:11px;color:var(--ts);margin-top:1px;}
+.meal-status-badge{margin-left:auto;padding:2px 8px;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;}
+.status-exacta{background:var(--gp);color:var(--gd);}
+.status-sustitucion{background:#EDE9FF;color:#4C3A9E;}
+.status-parcial{background:var(--ap);color:#7a4f0a;}
+.status-no{background:var(--rp);color:var(--reddark);}
+.status-omitida{background:var(--cloud);color:var(--steel);}
+.status-pendiente{background:var(--cloud);color:var(--ts);}
+.meal-card-plan{background:var(--cloud);padding:10px 14px;border-bottom:1px solid var(--border);}
+.meal-plan-label{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:6px;}
+.meal-plan-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.blocks-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px;}
+.block-chip{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:2px 7px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;color:var(--tm);}
+.eq-list{margin-top:5px;}
+.eq-label{font-size:10px;color:var(--ts);margin-bottom:3px;}
+.eq-item{font-size:11px;color:var(--blue);padding:2px 0;}
+.meal-card-exec{padding:10px 14px;}
+.exec-row{margin-bottom:10px;}
+.exec-label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--steel);margin-bottom:5px;}
+.status-select{font-size:13px;padding:7px 10px;}
+/* Hunger row */
+.required-badge{display:inline-flex;align-items:center;gap:3px;padding:1px 6px;background:var(--rp);color:var(--reddark);border-radius:5px;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;}
+.optional-badge{display:inline-flex;align-items:center;gap:3px;padding:1px 6px;background:var(--cloud);color:var(--ts);border-radius:5px;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;}
+/* Toast */
 .toast{position:fixed;bottom:20px;right:16px;background:var(--navy);color:#fff;padding:9px 16px;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;opacity:0;transform:translateY(10px);transition:all .25s;pointer-events:none;z-index:999;box-shadow:0 4px 16px rgba(10,61,107,.35);}
 .toast.show{opacity:1;transform:translateY(0);}
+/* Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(10,61,107,.45);z-index:200;display:flex;align-items:center;justify-content:center;padding:1rem;}
+.modal-overlay.hidden{display:none;}
+.modal{background:var(--white);border-radius:var(--rl);padding:1.25rem;width:100%;max-width:440px;max-height:85vh;overflow-y:auto;}
+.modal-title{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:var(--text);margin-bottom:1rem;}
+.modal-actions{display:flex;gap:8px;margin-top:1rem;}
+.modal-actions .btn{flex:1;}
+/* Blocks progress */
+.bpbar-wrap{margin-top:6px;}
+.bpbar-label{display:flex;justify-content:space-between;font-size:11px;color:var(--tm);margin-bottom:3px;}
+.bpbar-label strong{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);}
+.bpbar{height:7px;background:var(--cloud);border-radius:4px;overflow:hidden;}
+.bpfill{height:100%;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:4px;transition:width .3s;}
 .app-footer{text-align:center;padding:1.5rem 1rem;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;color:var(--ts);text-transform:uppercase;letter-spacing:.1em;}
-@media(min-width:640px){.view{max-width:700px;margin:0 auto;}.sgrid{grid-template-columns:repeat(4,1fr);}}
+/* Day navigator — Comidas */
+.day-nav{display:flex;align-items:center;gap:8px;}
+.day-nav-btn{width:32px;height:32px;background:var(--white);border:1px solid var(--bm);border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--blue);flex-shrink:0;transition:background .15s;}
+.day-nav-btn:hover{background:var(--ice);}
+.day-nav-btn:disabled{opacity:.35;cursor:default;}
+.day-nav-label{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--navy);flex:1;text-align:center;}
+.day-nav-phase{font-size:10px;color:var(--steel);font-weight:500;display:block;margin-top:1px;}
+/* Inline validation error — kept for non-foto uses */
+.inline-error{background:var(--rp);border:1px solid rgba(226,75,74,.3);border-radius:6px;padding:6px 10px;margin-top:6px;font-size:12px;color:var(--reddark);display:flex;align-items:center;gap:6px;}
+@media(min-width:640px){.view{max-width:720px;margin:0 auto;}.sgrid{grid-template-columns:repeat(4,1fr);}}
 </style>
 </head>
 <body>
@@ -191,7 +269,7 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
       <div class="brand-mark">MZ</div>
       <div class="brand-text">
         <h1>Mi Zona Tracker</h1>
-        <p>Dr. Barry Sears · Programa 30 días</p>
+        <p>Dr. Barry Sears · v3.0</p>
       </div>
     </div>
     <div class="hstats">
@@ -206,12 +284,13 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
   <div class="ntab active" onclick="showView('cal')">Calendario</div>
   <div class="ntab" onclick="showView('dia')">Día</div>
   <div class="ntab" onclick="showView('com')">Comidas</div>
+  <div class="ntab" onclick="showView('plan')">Plan</div>
   <div class="ntab" onclick="showView('graf')">Gráficas</div>
   <div class="ntab" onclick="showView('mks')">Marcadores</div>
-  <div class="ntab" onclick="showView('rec')">Recetas</div>
+  <div class="ntab" onclick="showView('rec')">Catálogo</div>
 </nav>
 
-<!-- ══ CALENDARIO ══ -->
+<!-- ══════════ CALENDARIO ══════════ -->
 <div class="view active" id="view-cal">
   <div id="alerts-panel"></div>
   <div class="pills" id="phase-pills">
@@ -236,7 +315,7 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
   </div>
 </div>
 
-<!-- ══ DÍA ══ -->
+<!-- ══════════ DÍA ══════════ -->
 <div class="view" id="view-dia">
   <div class="card" style="padding-bottom:8px;">
     <div class="ddh">
@@ -270,7 +349,7 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
   </div>
   <div class="card">
     <div class="ct">Regulación del día</div>
-    <div style="background:var(--ap);border-radius:8px;padding:8px 10px;margin-bottom:10px;font-size:11px;color:#7a4f0a;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:.03em;">Tres campos que vuelven la regulación medible, no solo reflexiva.</div>
+    <div style="background:var(--ap);border-radius:8px;padding:8px 10px;margin-bottom:10px;font-size:11px;color:#7a4f0a;font-family:'Montserrat',sans-serif;font-weight:600;">Tres campos que vuelven la regulación medible, no solo reflexiva.</div>
     <div class="reg-grid">
       <div class="reg-item det"><label>Detonante del día</label><textarea id="r-detonante" rows="2" placeholder="¿Qué situación, emoción o momento activó el impulso?"></textarea></div>
       <div class="reg-item imp"><label>¿Qué intenté regular con comida?</label><textarea id="r-impulso" rows="2" placeholder="Ansiedad, aburrimiento, tensión, cansancio..."></textarea></div>
@@ -283,99 +362,92 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
   <div style="padding:0 0 12px;"><button class="btn btn-b" id="save-btn" onclick="saveDay()">Guardar día</button></div>
 </div>
 
-<!-- ══ COMIDAS ══ -->
+<!-- ══════════ COMIDAS ══════════ -->
 <div class="view" id="view-com">
-  <div class="card" style="background:var(--ice);border-color:transparent;">
-    <strong style="font-family:'Montserrat',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--navy);">Día <span id="comida-day-label">1</span></strong><br>
-    <span style="font-size:12px;color:var(--navy);line-height:1.5;">Mano-ojo (Fase 1): 1/3 proteína · 2/3 verduras+fruta · toque de grasa. Activa bloques en Fase 2.</span>
+  <div class="card ice">
+    <div class="day-nav">
+      <button class="day-nav-btn" id="com-prev-btn" onclick="comNavDay(-1)" title="Día anterior">‹</button>
+      <div class="day-nav-label">
+        Día <span id="comida-day-label">1</span>
+        <span class="day-nav-phase" id="comida-phase-label">Fase 1 · Desinflamar</span>
+      </div>
+      <button class="day-nav-btn" id="com-next-btn" onclick="comNavDay(1)" title="Día siguiente">›</button>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px;">
+      <div style="font-size:11px;color:var(--steel);" id="comida-plan-status">Sin plan cargado — registro libre</div>
+      <div id="comida-adherencia-badge"></div>
+    </div>
   </div>
+  <div id="meals-execution-container"></div>
+</div>
+
+<!-- ══════════ PLAN ══════════ -->
+<div class="view" id="view-plan">
+  <div id="plan-errors"></div>
+  <div id="plan-meta-panel"></div>
+
+  <div class="plan-upload-zone" onclick="document.getElementById('plan-file-input').click()">
+    <input type="file" id="plan-file-input" accept=".csv,.xlsx,.xls" onchange="handlePlanFile(event)">
+    <div class="plan-upload-title">📂 Importar plan mensual</div>
+    <div class="plan-upload-sub">CSV o XLSX · Una hoja · Columnas obligatorias incluidas</div>
+  </div>
+
   <div class="card">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-      <div class="ct" style="margin:0;">Registro de comidas</div>
-      <button class="btn btn-o btn-sm" id="toggle-blocks" onclick="toggleBlocks()">Activar bloques</button>
+    <div class="ct">Columnas requeridas</div>
+    <div style="font-size:11px;color:var(--tm);line-height:1.8;font-family:'Montserrat',sans-serif;">
+      mes · fase · dia · fecha · tipo_comida · menu_id · nombre_comida<br>
+      proteina_bloques · carb_bloques · grasa_bloques<br>
+      proteina_desc · carb_desc · grasa_desc<br>
+      equivalencias_validas · nota_operativa · foto_obligatoria · activa
     </div>
-    <div id="blocks-panel" style="display:none;background:var(--ice);border-radius:8px;padding:10px;margin-bottom:12px;">
-      <div style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--blue);margin-bottom:8px;">1 bloque = 7g proteína · 9g carb · 1.5g grasa</div>
-      <div class="fgrid" style="margin-bottom:8px;">
-        <div>
-          <label style="font-size:11px;color:var(--steel);font-family:'Montserrat',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:4px;">Meta diaria</label>
-          <select id="meta-bloques" style="font-size:13px;padding:6px 8px;" onchange="updateBlocksBar()">
-            <option value="11">11 bloques (~70kg)</option>
-            <option value="12">12 bloques (~80kg)</option>
-            <option value="13" selected>13 bloques (~90kg)</option>
-            <option value="14">14 bloques (~100kg)</option>
-          </select>
-        </div>
-        <div style="background:var(--white);border-radius:8px;padding:8px;text-align:center;">
-          <div style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--navy);" id="bloques-total">0</div>
-          <div style="font-size:10px;color:var(--steel);">/ <span id="bloques-meta">13</span> bloques proteína</div>
-        </div>
-      </div>
-      <div class="blocks-prog">
-        <div class="blocks-prog-label"><span>Progreso</span><strong id="bloques-pct">0%</strong></div>
-        <div class="bpbar"><div class="bpfill" id="bloques-bar" style="width:0%"></div></div>
-      </div>
-    </div>
-    <div id="meals-container"></div>
+    <div class="divider"></div>
+    <div style="font-size:11px;color:var(--ts);">Equivalencias: separadas por <code style="background:var(--cloud);padding:1px 4px;border-radius:3px;">|</code> · Ejemplo: <em>cottage + fruta | yogurt griego + berries</em></div>
+  </div>
+
+  <div id="plan-days-preview"></div>
+
+  <div id="plan-actions" style="display:none;padding-bottom:12px;">
+    <button class="btn btn-o" onclick="exportPlan()" style="margin-bottom:8px;">Exportar plan actual como CSV</button>
+    <button class="btn btn-r" onclick="clearPlanConfirm()">Limpiar plan actual</button>
   </div>
 </div>
 
-<!-- ══ GRÁFICAS ══ -->
+<!-- ══════════ GRÁFICAS ══════════ -->
 <div class="view" id="view-graf">
   <div class="card"><div class="ct">Energía / Claridad / Ansiedad</div><div class="chwrap"><canvas id="chart-vitals"></canvas></div><div class="chleg"><div class="cli"><div class="cld" style="background:#0B6ABF"></div>Energía</div><div class="cli"><div class="cld" style="background:#EF9F27"></div>Ansiedad</div><div class="cli"><div class="cld" style="background:#1D9E75"></div>Claridad</div></div></div>
   <div class="card"><div class="ct">Pasos diarios</div><div class="chwrap"><canvas id="chart-pasos"></canvas></div></div>
   <div class="card"><div class="ct">Peso (kg)</div><div class="chwrap"><canvas id="chart-peso"></canvas></div></div>
-  <div class="card"><div class="ct">Protocolos cumplidos (%)</div><div class="chwrap"><canvas id="chart-checks"></canvas></div></div>
+  <div class="card"><div class="ct">Adherencia al plan (%)</div><div class="chwrap"><canvas id="chart-adh"></canvas></div></div>
 </div>
 
-<!-- ══ MARCADORES ══ -->
+<!-- ══════════ MARCADORES ══════════ -->
 <div class="view" id="view-mks">
-  <div class="card" style="background:var(--ice);border-color:transparent;margin-bottom:12px;">
-    <div style="font-size:12px;color:var(--navy);line-height:1.6;">La meta a 30 días es demostrar que el sistema cambió de dirección. Los semáforos usan umbrales Zone exactos.</div>
-  </div>
+  <div class="card ice" style="margin-bottom:12px;"><div style="font-size:12px;color:var(--navy);line-height:1.6;">La meta a 30 días es demostrar que el sistema cambió de dirección. Semáforos con umbrales Zone exactos.</div></div>
   <div class="card">
     <div class="ct">Perfil inflamatorio</div>
-    <div class="mkr">
-      <div class="mkl"><div class="mkn">TG / HDL</div><div class="mkg">Verde &lt;1 · Amarillo 1–3 · Rojo &gt;3</div><div id="sem-tghdl"></div></div>
-      <input class="mkin" id="mk-tghdl" type="number" step="0.01" placeholder="1.54" oninput="updateSem('tghdl',this.value)">
-    </div>
-    <div class="mkr">
-      <div class="mkl"><div class="mkn">PCR</div><div class="mkg">mg/L · Verde &lt;1 · Amarillo 1–3 · Rojo &gt;3</div><div id="sem-pcr"></div></div>
-      <input class="mkin" id="mk-pcr" type="number" step="0.1" placeholder="—" oninput="updateSem('pcr',this.value)">
-    </div>
-    <div class="mkr">
-      <div class="mkl"><div class="mkn">AA / EPA</div><div class="mkg">Verde 1.5–3 · Amarillo 3–5 · Rojo &gt;5 o &lt;1</div><div id="sem-aaepa"></div></div>
-      <input class="mkin" id="mk-aaepa" type="number" step="0.1" placeholder="—" oninput="updateSem('aaepa',this.value)">
-    </div>
+    <div class="mkr"><div class="mkl"><div class="mkn">TG / HDL</div><div class="mkg">Verde &lt;1 · Amarillo 1–3 · Rojo &gt;3</div><div id="sem-tghdl"></div></div><input class="mkin" id="mk-tghdl" type="number" step="0.01" placeholder="1.54" oninput="updateSem('tghdl',this.value)"></div>
+    <div class="mkr"><div class="mkl"><div class="mkn">PCR</div><div class="mkg">mg/L · Verde &lt;1 · Amarillo 1–3 · Rojo &gt;3</div><div id="sem-pcr"></div></div><input class="mkin" id="mk-pcr" type="number" step="0.1" placeholder="—" oninput="updateSem('pcr',this.value)"></div>
+    <div class="mkr"><div class="mkl"><div class="mkn">AA / EPA</div><div class="mkg">Verde 1.5–3 · Amarillo 3–5 · Rojo &gt;5 o &lt;1</div><div id="sem-aaepa"></div></div><input class="mkin" id="mk-aaepa" type="number" step="0.1" placeholder="—" oninput="updateSem('aaepa',this.value)"></div>
   </div>
   <div class="card">
     <div class="ct">Metabolismo glucémico</div>
-    <div class="mkr">
-      <div class="mkl"><div class="mkn">HbA1c</div><div class="mkg">Verde 4.9–5.1 · Amarillo 5.2–5.4 · Rojo &gt;5.4 o &lt;4.9</div><div id="sem-hba1c"></div></div>
-      <input class="mkin" id="mk-hba1c" type="number" step="0.1" placeholder="—" oninput="updateSem('hba1c',this.value)">
-    </div>
-    <div class="mkr">
-      <div class="mkl"><div class="mkn">Insulina en ayunas</div><div class="mkg">Verde &lt;5 · Amarillo 5–10 · Rojo &gt;10</div><div id="sem-insulina"></div></div>
-      <input class="mkin" id="mk-insulina" type="number" step="0.1" placeholder="—" oninput="updateSem('insulina',this.value)">
-    </div>
-    <div class="mkr">
-      <div class="mkl"><div class="mkn">Glucosa en ayunas</div><div class="mkg">70–85 mg/dL ideal</div></div>
-      <input class="mkin" id="mk-glucosa" type="number" step="1" placeholder="—">
-    </div>
+    <div class="mkr"><div class="mkl"><div class="mkn">HbA1c</div><div class="mkg">Verde 4.9–5.1 · Amarillo 5.2–5.4 · Rojo &gt;5.4 o &lt;4.9</div><div id="sem-hba1c"></div></div><input class="mkin" id="mk-hba1c" type="number" step="0.1" placeholder="—" oninput="updateSem('hba1c',this.value)"></div>
+    <div class="mkr"><div class="mkl"><div class="mkn">Insulina en ayunas</div><div class="mkg">Verde &lt;5 · Amarillo 5–10 · Rojo &gt;10</div><div id="sem-insulina"></div></div><input class="mkin" id="mk-insulina" type="number" step="0.1" placeholder="—" oninput="updateSem('insulina',this.value)"></div>
+    <div class="mkr"><div class="mkl"><div class="mkn">Glucosa en ayunas</div><div class="mkg">70–85 mg/dL ideal</div></div><input class="mkin" id="mk-glucosa" type="number" step="1" placeholder="—"></div>
   </div>
   <div class="card">
     <div class="ct">Peso — evolución</div>
     <div class="mkr"><div class="mkl"><div class="mkn">Peso inicial (día 0)</div></div><input class="mkin" id="mk-peso-ini" type="number" placeholder="—" step="0.1" oninput="updatePesoDelta()"></div>
-    <div class="mkr"><div class="mkl"><div class="mkn">Peso día 15</div></div><input class="mkin" id="mk-peso-15" type="number" placeholder="—" step="0.1" oninput="updatePesoDelta()"></div>
+    <div class="mkr"><div class="mkl"><div class="mkn">Peso día 15</div></div><input class="mkin" id="mk-peso-15" type="number" placeholder="—" step="0.1"></div>
     <div class="mkr"><div class="mkl"><div class="mkn">Peso día 30</div></div><input class="mkin" id="mk-peso-fin" type="number" placeholder="—" step="0.1" oninput="updatePesoDelta()"></div>
     <div id="peso-delta"></div>
   </div>
   <div class="card">
     <div class="ct">Cintura abdominal — seguimiento semanal</div>
-    <div style="font-size:11px;color:var(--ts);margin-bottom:10px;">En hígado graso y resistencia a insulina, la cintura importa más que el peso. Mide siempre en el mismo punto, en ayunas.</div>
+    <div style="font-size:11px;color:var(--ts);margin-bottom:10px;">En hígado graso y resistencia a insulina, la cintura importa más que el peso.</div>
     <div class="csem-grid">
       <div class="csem-item"><div class="csem-label">Semana 0</div><input class="csem-input" id="mk-cin-0" type="number" step="0.1" placeholder="—" oninput="updateCinturaDelta()"><div style="font-size:9px;color:var(--ts);">cm</div></div>
-      <div class="csem-item"><div class="csem-label">Semana 2</div><input class="csem-input" id="mk-cin-2" type="number" step="0.1" placeholder="—" oninput="updateCinturaDelta()"><div style="font-size:9px;color:var(--ts);">cm</div></div>
+      <div class="csem-item"><div class="csem-label">Semana 2</div><input class="csem-input" id="mk-cin-2" type="number" step="0.1" placeholder="—"><div style="font-size:9px;color:var(--ts);">cm</div></div>
       <div class="csem-item"><div class="csem-label">Día 30</div><input class="csem-input" id="mk-cin-30" type="number" step="0.1" placeholder="—" oninput="updateCinturaDelta()"><div style="font-size:9px;color:var(--ts);">cm</div></div>
     </div>
     <div id="cintura-delta"></div>
@@ -386,48 +458,82 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
   </div>
 </div>
 
-<!-- ══ RECETAS ══ -->
+<!-- ══════════ CATÁLOGO ══════════ -->
 <div class="view" id="view-rec">
-  <div class="card" style="background:var(--ice);border-color:transparent;">
-    <div style="font-size:12px;color:var(--navy);line-height:1.5;">Sears: no necesitas variedad infinita, necesitas <strong>10 comidas repetibles</strong> que te mantengan 4–5 horas. Etiquétalas por contexto.</div>
-  </div>
+  <div class="card ice"><div style="font-size:12px;color:var(--navy);line-height:1.5;">Catálogo de comidas seguras y equivalencias. Alimenta sustituciones del plan y selección rápida por contexto.</div></div>
   <div class="arf">
-    <div class="ct">Agregar comida repetible</div>
+    <div class="ct">Agregar comida al catálogo</div>
     <div class="fgrid">
       <div><label style="font-size:11px;color:var(--steel);display:block;margin-bottom:4px;">Nombre</label><input type="text" id="r-nombre" placeholder="Ej: Ensalada de atún"></div>
       <div><label style="font-size:11px;color:var(--steel);display:block;margin-bottom:4px;">Tipo</label><select id="r-tipo"><option>Desayuno</option><option>Comida</option><option>Cena</option><option>Snack</option></select></div>
     </div>
     <div style="margin-bottom:8px;"><label style="font-size:11px;color:var(--steel);display:block;margin-bottom:4px;">Descripción</label><textarea id="r-desc" rows="2" placeholder="Proteína, carbohidrato, grasa..."></textarea></div>
-    <div class="fgrid" style="margin-bottom:8px;">
-      <div><label style="font-size:11px;color:var(--steel);display:block;margin-bottom:4px;">Bloques proteína</label><input type="number" id="r-bloques" placeholder="4" min="1" max="8"></div>
-      <div><label style="font-size:11px;color:var(--steel);display:block;margin-bottom:4px;">¿Mantiene 4–5h?</label><select id="r-mantiene"><option value="si">Sí</option><option value="mas">Más o menos</option><option value="no">No</option></select></div>
+    <div class="br" style="margin-bottom:8px;">
+      <div class="bw"><label>Prot B</label><input type="number" id="r-prot" placeholder="4" min="0" max="8"></div>
+      <div class="bw"><label>Carb B</label><input type="number" id="r-carb" placeholder="4" min="0" max="8"></div>
+      <div class="bw"><label>Grasa B</label><input type="number" id="r-grasa" placeholder="4" min="0" max="8"></div>
     </div>
+    <div class="fgrid" style="margin-bottom:8px;">
+      <div><label style="font-size:11px;color:var(--steel);display:block;margin-bottom:4px;">¿Mantiene 4–5h?</label><select id="r-mantiene"><option value="si">Sí</option><option value="mas">Más o menos</option><option value="no">No</option></select></div>
+      <div style="display:flex;flex-direction:column;gap:4px;justify-content:flex-end;">
+        <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;"><input type="checkbox" id="r-esEquivalencia" style="width:14px;height:14px;accent-color:var(--blue);"> Equivalencia válida</label>
+        <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;"><input type="checkbox" id="r-aptaSust" style="width:14px;height:14px;accent-color:var(--blue);"> Apta para sustitución</label>
+      </div>
+    </div>
+    <div style="margin-bottom:8px;"><label style="font-size:11px;color:var(--steel);display:block;margin-bottom:4px;">Nota operativa</label><input type="text" id="r-nota-op" placeholder="Ej: preparar noche anterior..."></div>
     <div style="margin-bottom:10px;">
       <label style="font-size:11px;color:var(--steel);display:block;margin-bottom:6px;">Etiquetas de contexto</label>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;" id="tag-checkboxes">
+      <div style="display:flex;gap:6px;flex-wrap:wrap;" id="tag-checkboxes">
         <label style="display:flex;align-items:center;gap:5px;font-size:12px;cursor:pointer;background:var(--white);padding:4px 8px;border-radius:6px;border:1px solid var(--border);"><input type="checkbox" value="ansiedad" style="width:14px;height:14px;accent-color:var(--blue);"> 😮‍💨 Ansiedad</label>
         <label style="display:flex;align-items:center;gap:5px;font-size:12px;cursor:pointer;background:var(--white);padding:4px 8px;border-radius:6px;border:1px solid var(--border);"><input type="checkbox" value="viaje" style="width:14px;height:14px;accent-color:var(--blue);"> ✈️ Viaje</label>
         <label style="display:flex;align-items:center;gap:5px;font-size:12px;cursor:pointer;background:var(--white);padding:4px 8px;border-radius:6px;border:1px solid var(--border);"><input type="checkbox" value="rapida" style="width:14px;height:14px;accent-color:var(--blue);"> ⚡ Rápida</label>
         <label style="display:flex;align-items:center;gap:5px;font-size:12px;cursor:pointer;background:var(--white);padding:4px 8px;border-radius:6px;border:1px solid var(--border);"><input type="checkbox" value="recaida" style="width:14px;height:14px;accent-color:var(--blue);"> 🔄 Recaída</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:12px;cursor:pointer;background:var(--white);padding:4px 8px;border-radius:6px;border:1px solid var(--border);"><input type="checkbox" value="permiso" style="width:14px;height:14px;accent-color:var(--blue);"> ✋ Permiso consciente</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:12px;cursor:pointer;background:var(--white);padding:4px 8px;border-radius:6px;border:1px solid var(--border);"><input type="checkbox" value="libre" style="width:14px;height:14px;accent-color:var(--blue);"> 🍽 Comida libre</label>
       </div>
     </div>
-    <button class="btn btn-b" onclick="addRecipe()">Agregar comida</button>
+    <button class="btn btn-b" onclick="addRecipe()">Agregar al catálogo</button>
   </div>
   <div id="recipes-list"></div>
   <div id="empty-recipes" style="text-align:center;padding:2rem 1rem;color:var(--ts);">
     <div style="font-size:32px;margin-bottom:8px;">🍽</div>
-    <div style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;">Sin comidas guardadas aún</div>
-    <div style="font-size:12px;margin-top:4px;">Empieza a construir tu lista de 10</div>
+    <div style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;">Catálogo vacío</div>
+    <div style="font-size:12px;margin-top:4px;">Agrega tus comidas seguras y equivalencias válidas</div>
   </div>
 </div>
 
-<footer class="app-footer">@gnozin · mizonatraker.netlify.app · v2.2</footer>
+<!-- Modal confirmación -->
+<div class="modal-overlay hidden" id="confirm-modal">
+  <div class="modal">
+    <div class="modal-title" id="modal-title">¿Confirmar acción?</div>
+    <div style="font-size:13px;color:var(--tm);" id="modal-body"></div>
+    <div class="modal-actions">
+      <button class="btn btn-o" onclick="closeModal()">Cancelar</button>
+      <button class="btn btn-r" id="modal-confirm-btn">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<footer class="app-footer">@gnozin · mizonatraker.netlify.app · v3.1-B</footer>
 <div class="toast" id="toast"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
-const KD='mz_days_v22',KM='mz_markers_v22',KR='mz_recipes_v22',KBL='mz_blocks_v22';
-let D={},M={},R=[],BL={},selDay=1,phFilter=0,blocksActive=false,charts={};
+// ══════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════
+const KD='mz_days_v3',KM='mz_markers_v3',KR='mz_recipes_v3',KE='mz_exec_v3',KP='mz_plan_v3';
+
+// D = daily context (vitals, checklist, regulation)
+// E = execution per meal per day
+// P = monthly plan
+// M = clinical markers
+// R = recipe catalog
+
+let D={},M={},R=[],E={},P=null;
+let selDay=1,phFilter=0,charts={};
 
 const PH={
   1:{name:'Fase 1 · Desinflamar',short:'Fase 1',cls:'ph1'},
@@ -441,179 +547,569 @@ const CL={
   3:['Repetir las 10 comidas Zone que funcionan','Entorno preparado: proteína y verdura listas','Caminatas posprandiales sostenidas','7,000–9,000 pasos si es realista','Redactar narrativa nueva del cuerpo','Activar protocolo personal de recaída si aplica']
 };
 
-const MEALS=[
-  {id:'desayuno',label:'Desayuno',icon:'🌅',b:4},
-  {id:'snack1',label:'Snack mañana',icon:'🍎',b:1},
-  {id:'comida',label:'Comida',icon:'☀️',b:4},
-  {id:'snack2',label:'Snack tarde',icon:'🥜',b:1},
-  {id:'cena',label:'Cena',icon:'🌙',b:4}
+const DEFAULT_MEALS=[
+  {id:'desayuno',label:'Desayuno',icon:'🌅',tipo:'desayuno'},
+  {id:'snack_manana',label:'Snack mañana',icon:'🍎',tipo:'snack'},
+  {id:'comida',label:'Comida',icon:'☀️',tipo:'comida'},
+  {id:'snack_tarde',label:'Snack tarde',icon:'🥜',tipo:'snack'},
+  {id:'cena',label:'Cena',icon:'🌙',tipo:'cena'}
 ];
 
-// ─── SEMAPHORE RULES (refined) ──────────────────────────
-const SEM_RULES={
-  tghdl:(v)=>v<1?'g':v<=3?'y':'r',
-  pcr:(v)=>v<1?'g':v<=3?'y':'r',
-  // Fixed: AA/EPA out-of-range below 1 = informational, not yellow
-  aaepa:(v)=>v<1?'i':v<=3?'g':v<=5?'y':'r',
-  // Fixed: HbA1c below 4.9 = informational (not simply green)
-  hba1c:(v)=>v<4.9?'i':v<=5.1?'g':v<=5.4?'y':'r',
-  insulina:(v)=>v<5?'g':v<=10?'y':'r'
-};
+const ESTADOS=[
+  {val:'cumplida_exacta',label:'Cumplida exacta',cls:'status-exacta'},
+  {val:'cumplida_con_sustitucion',label:'Con sustitución',cls:'status-sustitucion'},
+  {val:'parcialmente_cumplida',label:'Parcialmente cumplida',cls:'status-parcial'},
+  {val:'no_cumplida',label:'No cumplida',cls:'status-no'},
+  {val:'omitida',label:'Omitida',cls:'status-omitida'}
+];
 
-const SEM_LABEL={
-  g:'En zona',y:'Atención',r:'Fuera de zona',
-  i:'Valor inusual — verificar'
-};
+const MOTIVOS=[
+  'no_habia_ingrediente','comi_fuera','viaje','falta_de_tiempo','ansiedad',
+  'impulso','hambre_desordenada','cansancio','contexto_social',
+  'permiso_consciente','indulgencia','comida_libre','otro'
+];
 
-function ph(d){return d<=7?1:d<=21?2:3;}
+const TIPO_EVENTO=['funcional','desvio','recaida','permiso_consciente','indulgencia','comida_libre'];
 
+const REQUIRED_COLS=['mes','fase','dia','fecha','tipo_comida','menu_id','nombre_comida',
+  'proteina_bloques','carb_bloques','grasa_bloques','proteina_desc','carb_desc','grasa_desc',
+  'equivalencias_validas','nota_operativa','foto_obligatoria','activa'];
+
+const VALID_TIPOS=['desayuno','comida','cena','snack','snack_manana','snack_tarde'];
+const VALID_FASES=['1','2','3','fase 1','fase 2','fase 3'];
+
+// ══════════════════════════════════════════════════════
+// PERSISTENCE
+// ══════════════════════════════════════════════════════
 function save(){
   localStorage.setItem(KD,JSON.stringify(D));
   localStorage.setItem(KM,JSON.stringify(M));
   localStorage.setItem(KR,JSON.stringify(R));
-  localStorage.setItem(KBL,JSON.stringify(BL));
+  localStorage.setItem(KE,JSON.stringify(E));
+  if(P)localStorage.setItem(KP,JSON.stringify(P));
 }
 
 function load(){
   try{const s=localStorage.getItem(KD);if(s)D=JSON.parse(s);}catch(e){}
   try{const s=localStorage.getItem(KM);if(s)M=JSON.parse(s);}catch(e){}
   try{const s=localStorage.getItem(KR);if(s)R=JSON.parse(s);}catch(e){}
-  try{const s=localStorage.getItem(KBL);if(s)BL=JSON.parse(s);}catch(e){}
+  try{const s=localStorage.getItem(KE);if(s)E=JSON.parse(s);}catch(e){}
+  try{const s=localStorage.getItem(KP);if(s){P=JSON.parse(s);buildPlanIndex();}}catch(e){}
 }
 
+function ph(d){return d<=7?1:d<=21?2:3;}
+
+// ══════════════════════════════════════════════════════
+// SANITIZATION HELPER (Fase A — #1)
+// Prevents HTML injection from user-supplied strings
+// in template literals used inside value="" attributes
+// and innerHTML.
+// ══════════════════════════════════════════════════════
+function esc(str){
+  if(str==null)return'';
+  return String(str)
+    .replace(/&/g,'&amp;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;');
+}
+
+// ══════════════════════════════════════════════════════
+// PLAN INDEX (Fase A — #5)
+// Build P.index = { [dia]: [planned items] } for O(1)
+// day lookup. Called on import AND on load from storage.
+// ══════════════════════════════════════════════════════
+function buildPlanIndex(){
+  if(!P||!P.days)return;
+  P.index={};
+  P.days.forEach(item=>{
+    if(!P.index[item.dia])P.index[item.dia]=[];
+    P.index[item.dia].push(item);
+  });
+}
+
+// ══════════════════════════════════════════════════════
+// COMIDAS DAY NAVIGATOR (Fase A — #2)
+// ══════════════════════════════════════════════════════
+function comNavDay(delta){
+  const next=Math.min(30,Math.max(1,selDay+delta));
+  if(next===selDay)return;
+  selDay=next;
+  renderMealExecution();
+}
+
+// ══════════════════════════════════════════════════════
+// UI HELPERS
+// ══════════════════════════════════════════════════════
 function toast(msg){
   const t=document.getElementById('toast');
   t.textContent=msg;t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2000);
+  setTimeout(()=>t.classList.remove('show'),2200);
 }
 
 function showView(v){
   document.querySelectorAll('.view').forEach(el=>el.classList.remove('active'));
   document.querySelectorAll('.ntab').forEach(el=>el.classList.remove('active'));
   document.getElementById('view-'+v).classList.add('active');
-  const tabs=['cal','dia','com','graf','mks','rec'];
+  const tabs=['cal','dia','com','plan','graf','mks','rec'];
   document.querySelectorAll('.ntab')[tabs.indexOf(v)].classList.add('active');
   if(v==='graf')setTimeout(drawCharts,100);
-  if(v==='com')renderMeals();
+  if(v==='com')renderMealExecution();
   if(v==='rec')renderRecipes();
   if(v==='mks'){loadMarkerFields();updateAllSems();}
+  if(v==='plan'){renderPlanView();}
   if(v==='cal'){buildAlerts();buildWeeklySummaries();}
 }
 
-// ─── RACHA REAL ─────────────────────────────────────────
-function calcStreak(){
-  let last=0;
-  for(let d=30;d>=1;d--){if(D[d]&&D[d].saved){last=d;break;}}
-  if(!last)return 0;
-  let s=0;
-  for(let d=last;d>=1;d--){if(D[d]&&D[d].saved)s++;else break;}
-  return s;
+function openModal(title,body,onConfirm){
+  document.getElementById('modal-title').textContent=title;
+  document.getElementById('modal-body').textContent=body;
+  document.getElementById('modal-confirm-btn').onclick=()=>{onConfirm();closeModal();};
+  document.getElementById('confirm-modal').classList.remove('hidden');
 }
 
-// ─── PATTERN ALERTS ─────────────────────────────────────
-function buildAlerts(){
-  const panel=document.getElementById('alerts-panel');
-  if(!panel)return;
-  const alerts=[];
-  const saved=[];
-  for(let d=1;d<=30;d++){if(D[d]&&D[d].saved)saved.push({d,r:D[d]});}
-  if(saved.length<3){panel.innerHTML='';return;}
+function closeModal(){
+  document.getElementById('confirm-modal').classList.add('hidden');
+}
 
-  // Check last 3 saved days
-  const last3=saved.slice(-3).map(x=>x.r);
+// ══════════════════════════════════════════════════════
+// PLAN IMPORT
+// ══════════════════════════════════════════════════════
+function handlePlanFile(event){
+  const file=event.target.files[0];
+  if(!file)return;
+  const ext=file.name.split('.').pop().toLowerCase();
+  if(ext==='csv'){
+    const reader=new FileReader();
+    reader.onload=e=>parsePlanCSV(e.target.result,file.name);
+    reader.readAsText(file,'UTF-8');
+  } else if(ext==='xlsx'||ext==='xls'){
+    const reader=new FileReader();
+    reader.onload=e=>{
+      const wb=XLSX.read(e.target.result,{type:'array'});
+      const ws=wb.Sheets[wb.SheetNames[0]];
+      const csv=XLSX.utils.sheet_to_csv(ws);
+      parsePlanCSV(csv,file.name);
+    };
+    reader.readAsArrayBuffer(file);
+  } else {
+    showPlanErrors(['Formato no soportado. Use .csv o .xlsx']);
+  }
+  event.target.value='';
+}
 
-  // Alert: energy low + anxiety high
-  const avgE=last3.reduce((a,r)=>a+(r.vitals?.energia||5),0)/3;
-  const avgA=last3.reduce((a,r)=>a+(r.vitals?.ansiedad||5),0)/3;
-  if(avgE<4&&avgA>6){
-    alerts.push({type:'warn',icon:'⚡',title:'Energía baja + ansiedad elevada',text:'Últimos 3 días: energía promedio '+avgE.toFixed(1)+'/10, ansiedad '+avgA.toFixed(1)+'/10. Revisar desayuno, recortar carga glucémica y añadir caminata post comida.'});
+function parsePlanCSV(csvText,fileName){
+  clearPlanErrors();
+  const result=Papa.parse(csvText.trim(),{header:true,skipEmptyLines:true,transformHeader:h=>h.trim().toLowerCase().replace(/\s+/g,'_')});
+  const rows=result.data;
+  if(!rows||rows.length===0){showPlanErrors(['El archivo está vacío']);return;}
+
+  // Validate columns
+  const cols=Object.keys(rows[0]).map(c=>c.trim());
+  const missing=REQUIRED_COLS.filter(c=>!cols.includes(c));
+  if(missing.length){showPlanErrors(['Columnas faltantes: '+missing.join(', ')]);return;}
+
+  const errors=[];
+  const seen=new Set();
+  const days=[];
+
+  rows.forEach((row,i)=>{
+    const lineNum=i+2;
+    const dia=parseInt(row.dia);
+    const fase=String(row.fase||'').trim().toLowerCase();
+    const tipo=String(row.tipo_comida||'').trim().toLowerCase();
+    const pb=parseFloat(row.proteina_bloques);
+    const cb=parseFloat(row.carb_bloques);
+    const gb=parseFloat(row.grasa_bloques);
+
+    if(isNaN(dia)||dia<1||dia>30)errors.push(`Fila ${lineNum}: día fuera de rango (${row.dia})`);
+    if(!VALID_FASES.includes(fase))errors.push(`Fila ${lineNum}: fase inválida (${row.fase})`);
+    if(tipo&&!VALID_TIPOS.some(t=>tipo.includes(t)))errors.push(`Fila ${lineNum}: tipo_comida inválido (${row.tipo_comida})`);
+    if(isNaN(pb)||isNaN(cb)||isNaN(gb))errors.push(`Fila ${lineNum}: bloques no numéricos`);
+
+    const dupKey=`${dia}_${tipo}`;
+    if(seen.has(dupKey))errors.push(`Fila ${lineNum}: fila duplicada día ${dia} + ${tipo}`);
+    seen.add(dupKey);
+
+    days.push({
+      dia,fase:parseInt(String(row.fase).replace(/\D/g,''))||1,
+      fecha:row.fecha||'',
+      tipo_comida:tipo,
+      menu_id:row.menu_id||'',
+      nombre_comida:row.nombre_comida||'',
+      proteina_bloques:pb,carb_bloques:cb,grasa_bloques:gb,
+      proteina_desc:row.proteina_desc||'',
+      carb_desc:row.carb_desc||'',
+      grasa_desc:row.grasa_desc||'',
+      equivalencias_validas:(row.equivalencias_validas||'').split('|').map(s=>s.trim()).filter(Boolean),
+      nota_operativa:row.nota_operativa||'',
+      foto_obligatoria:(row.foto_obligatoria||'').toLowerCase()==='true'||row.foto_obligatoria==='1',
+      activa:(row.activa||'true').toLowerCase()!=='false'&&row.activa!=='0'
+    });
+  });
+
+  if(errors.length){showPlanErrors(errors);return;}
+
+  P={
+    id:'plan_'+Date.now(),
+    month:rows[0].mes||'—',
+    sourceFileName:fileName,
+    importedAt:new Date().toISOString(),
+    days
+  };
+  buildPlanIndex();
+  save();
+  toast('Plan importado: '+days.length+' comidas');
+  renderPlanView();
+}
+
+function showPlanErrors(errors){
+  const el=document.getElementById('plan-errors');
+  el.innerHTML=`<div class="plan-error"><div class="plan-error-title">Errores de importación (${errors.length})</div>${errors.map(e=>`<div>• ${e}</div>`).join('')}</div>`;
+}
+
+function clearPlanErrors(){
+  document.getElementById('plan-errors').innerHTML='';
+}
+
+function renderPlanView(){
+  const metaEl=document.getElementById('plan-meta-panel');
+  const previewEl=document.getElementById('plan-days-preview');
+  const actionsEl=document.getElementById('plan-actions');
+
+  if(!P){
+    metaEl.innerHTML='';
+    previewEl.innerHTML='<div class="plan-empty"><div class="plan-empty-icon">📋</div><div class="plan-empty-title">Sin plan cargado</div><div style="font-size:12px;margin-top:4px;">Importa un archivo CSV o XLSX para comenzar</div></div>';
+    actionsEl.style.display='none';
+    return;
   }
 
-  // Alert: streak broken
-  const streak=calcStreak();
-  if(saved.length>=3&&streak===1){
-    alerts.push({type:'warn',icon:'🔁',title:'Racha interrumpida',text:'Hoy es el día 1 de una nueva racha. El sistema Zone no requiere perfección — requiere regresar en la siguiente comida, no el lunes.'});
-  }
+  actionsEl.style.display='block';
+  const activeDays=P.days.filter(d=>d.activa);
+  const uniqueDays=new Set(P.days.map(d=>d.dia)).size;
 
-  // Alert: good streak
-  if(streak>=5){
-    alerts.push({type:'good',icon:'🟢',title:'Racha sólida: '+streak+' días',text:'Consistencia activa. Sears lo dice claramente: la adherencia de 7 días ya es suficiente para cambios metabólicos medibles.'});
-  }
+  metaEl.innerHTML=`<div class="plan-meta">
+    <div class="plan-meta-title">Plan cargado</div>
+    <div class="plan-meta-row"><span>Mes</span><strong>${esc(P.month)}</strong></div>
+    <div class="plan-meta-row"><span>Archivo</span><strong>${esc(P.sourceFileName)}</strong></div>
+    <div class="plan-meta-row"><span>Importado</span><strong>${new Date(P.importedAt).toLocaleDateString('es-MX')}</strong></div>
+    <div class="plan-meta-row"><span>Total comidas</span><strong>${P.days.length} (${activeDays.length} activas)</strong></div>
+    <div class="plan-meta-row"><span>Días con plan</span><strong>${uniqueDays}</strong></div>
+  </div>`;
 
-  // Alert: low protocol compliance last 3 days
-  const avgComp=last3.reduce((a,r)=>{
-    const p=ph(saved[saved.length-3+last3.indexOf(r)].d||1);
-    const cl=CL[p];const done=(r.checks||[]).filter(Boolean).length;
-    return a+(done/cl.length);
-  },0)/3;
-  if(avgComp<0.5){
-    alerts.push({type:'warn',icon:'📋',title:'Adherencia al protocolo por debajo del 50%',text:'Los últimos 3 días registrados muestran cumplimiento promedio de '+Math.round(avgComp*100)+'%. Identificar qué ítems se están saltando sistemáticamente.'});
-  }
+  // Group by day for preview
+  const byDay={};
+  P.days.forEach(item=>{
+    if(!byDay[item.dia])byDay[item.dia]=[];
+    byDay[item.dia].push(item);
+  });
 
-  // Info: approaching phase transition
-  const lastDay=saved[saved.length-1].d;
-  if(lastDay===6)alerts.push({type:'info',icon:'📍',title:'Transición mañana: Fase 2',text:'El día 8 arranca Reconfigurar. Activa los bloques Zone en la pestaña Comidas y ajusta por respuesta hambre/claridad.'});
-  if(lastDay===20)alerts.push({type:'info',icon:'📍',title:'Transición mañana: Fase 3',text:'El día 22 arranca Consolidar. Prepara la lista de 10 comidas repetibles y activa el protocolo de recaída.'});
-
-  panel.innerHTML=alerts.map(a=>`
-    <div class="alert ${a.type}">
-      <div class="alert-icon">${a.icon}</div>
-      <div class="alert-text"><strong>${a.title}</strong>${a.text}</div>
+  previewEl.innerHTML=Object.entries(byDay).sort((a,b)=>+a[0]-+b[0]).map(([dia,items])=>`
+    <div class="card" style="margin-bottom:8px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <div class="ct" style="margin:0;">Día ${esc(dia)}</div>
+        <span class="pb ph${ph(+dia)}">Fase ${ph(+dia)}</span>
+      </div>
+      ${items.map(it=>`
+        <div style="padding:6px 0;border-bottom:1px solid var(--border);">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+            <span style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--blue);">${esc(it.tipo_comida)}</span>
+            ${!it.activa?'<span style="font-size:9px;color:var(--ts);">inactiva</span>':''}
+            ${it.foto_obligatoria?'<span class="required-badge">📷 foto</span>':''}
+          </div>
+          <div style="font-size:13px;font-weight:600;color:var(--text);">${esc(it.nombre_comida)}</div>
+          <div style="display:flex;gap:5px;margin-top:3px;">
+            <span class="block-chip">P:${esc(it.proteina_bloques)}B</span>
+            <span class="block-chip">C:${esc(it.carb_bloques)}B</span>
+            <span class="block-chip">G:${esc(it.grasa_bloques)}B</span>
+          </div>
+          ${it.equivalencias_validas.length?`<div style="font-size:10px;color:var(--ts);margin-top:3px;">Equiv: ${it.equivalencias_validas.map(e=>esc(e)).join(' · ')}</div>`:''}
+        </div>
+      `).join('')}
     </div>
   `).join('');
 }
 
-// ─── WEEKLY SUMMARIES ───────────────────────────────────
+function exportPlan(){
+  if(!P){toast('Sin plan para exportar');return;}
+  const cols=REQUIRED_COLS;
+  const rows=[cols.join(',')];
+  P.days.forEach(d=>{
+    rows.push([
+      P.month,d.fase,d.dia,d.fecha,d.tipo_comida,d.menu_id,d.nombre_comida,
+      d.proteina_bloques,d.carb_bloques,d.grasa_bloques,
+      d.proteina_desc,d.carb_desc,d.grasa_desc,
+      d.equivalencias_validas.join('|'),d.nota_operativa,
+      d.foto_obligatoria?'true':'false',d.activa?'true':'false'
+    ].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(','));
+  });
+  const blob=new Blob([rows.join('\n')],{type:'text/csv;charset=utf-8'});
+  const url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download='plan-zona-'+P.month+'.csv';
+  a.click();URL.revokeObjectURL(url);toast('Plan exportado');
+}
+
+function clearPlanConfirm(){
+  openModal('Limpiar plan','¿Eliminar el plan mensual actual? Los registros de ejecución se conservan.',()=>{
+    P=null;localStorage.removeItem(KP);renderPlanView();toast('Plan eliminado');
+  });
+}
+
+// ══════════════════════════════════════════════════════
+// MEAL EXECUTION (Comidas tab)
+// ══════════════════════════════════════════════════════
+function getMealsForDay(day){
+  if(!P||!P.index)return DEFAULT_MEALS.map(m=>({...m,planned:null}));
+  const planned=(P.index[day]||[]).filter(d=>d.activa);
+  if(!planned.length)return DEFAULT_MEALS.map(m=>({...m,planned:null}));
+  return planned.map(p=>({
+    id:p.tipo_comida+'_'+p.menu_id,
+    label:p.tipo_comida.charAt(0).toUpperCase()+p.tipo_comida.slice(1),
+    icon:p.tipo_comida==='desayuno'?'🌅':p.tipo_comida==='comida'?'☀️':p.tipo_comida==='cena'?'🌙':'🍎',
+    tipo:p.tipo_comida,
+    planned:p
+  }));
+}
+
+function getExec(day,mealId){return(E[day]||{})[mealId]||{};}
+
+function saveExec(day,mealId,data){
+  if(!E[day])E[day]={};
+  E[day][mealId]={...getExec(day,mealId),...data};
+  save();
+  updateComidaAdherencia(day);
+}
+
+function updateComidaAdherencia(day){
+  const meals=getMealsForDay(day);
+  const execs=meals.map(m=>getExec(day,m.id));
+  const saved=execs.filter(ex=>ex.estado);
+  if(!saved.length){document.getElementById('comida-adherencia-badge').innerHTML='';return;}
+  const exactas=saved.filter(ex=>ex.estado==='cumplida_exacta').length;
+  const pct=Math.round((exactas/meals.length)*100);
+  const cls=pct>=80?'status-exacta':pct>=50?'status-parcial':'status-no';
+  document.getElementById('comida-adherencia-badge').innerHTML=`<span class="meal-status-badge ${cls}">${pct}% exacta</span>`;
+}
+
+function requiresMotivo(estado){
+  return estado&&estado!=='cumplida_exacta'&&estado!=='omitida';
+}
+
+function renderMealExecution(){
+  const d=selDay;
+
+  // ── Day navigator (Fase A — #2) ──
+  document.getElementById('comida-day-label').textContent=d;
+  document.getElementById('comida-phase-label').textContent=PH[ph(d)].name;
+  const prevBtn=document.getElementById('com-prev-btn');
+  const nextBtn=document.getElementById('com-next-btn');
+  if(prevBtn)prevBtn.disabled=(d<=1);
+  if(nextBtn)nextBtn.disabled=(d>=30);
+
+  document.getElementById('comida-plan-status').textContent=P
+    ?`Plan: ${esc(P.month)} · ${getMealsForDay(d).filter(m=>m.planned).length} comidas planificadas`
+    :'Sin plan cargado — registro libre';
+
+  const meals=getMealsForDay(d);
+  updateComidaAdherencia(d);
+
+  const container=document.getElementById('meals-execution-container');
+  container.innerHTML='';
+
+  meals.forEach(meal=>{
+    const ex=getExec(d,meal.id);
+    const estadoInfo=ESTADOS.find(e=>e.val===ex.estado)||null;
+
+    const badge=estadoInfo
+      ?`<span class="meal-status-badge ${estadoInfo.cls}">${estadoInfo.label}</span>`
+      :`<span class="meal-status-badge status-pendiente">Pendiente</span>`;
+
+    const card=document.createElement('div');
+    card.className='meal-card';
+    card.id='meal-card-'+meal.id;
+
+    // Build planned section HTML
+    let plannedHTML='';
+    if(meal.planned){
+      const p=meal.planned;
+      const eqs=p.equivalencias_validas.length
+        ?`<div class="eq-list"><div class="eq-label">Equivalencias válidas:</div>${p.equivalencias_validas.map(e=>`<div class="eq-item">· ${esc(e)}</div>`).join('')}</div>`:'';
+      plannedHTML=`<div class="meal-card-plan">
+        <div class="meal-plan-label">Planeado</div>
+        <div class="meal-plan-name">${esc(p.nombre_comida)}</div>
+        <div class="blocks-row">
+          <span class="block-chip">P: ${esc(p.proteina_bloques)}B</span>
+          <span class="block-chip">C: ${esc(p.carb_bloques)}B</span>
+          <span class="block-chip">G: ${esc(p.grasa_bloques)}B</span>
+        </div>
+        ${p.nota_operativa?`<div style="font-size:11px;color:var(--ts);margin-top:3px;">📌 ${esc(p.nota_operativa)}</div>`:''}
+        ${eqs}
+      </div>`;
+    }
+
+    card.innerHTML=`
+      <div class="meal-card-head">
+        <div class="meal-card-icon ${esc(meal.tipo)}">${meal.icon}</div>
+        <div>
+          <div class="meal-card-title">${esc(meal.label)}</div>
+          ${meal.planned?`<div class="meal-card-sub">${esc(meal.planned.nombre_comida)}</div>`:'<div class="meal-card-sub">Sin plan</div>'}
+        </div>
+        ${badge}
+      </div>
+      ${plannedHTML}
+      <div class="meal-card-exec" id="exec-form-${esc(meal.id)}"></div>
+    `;
+    container.appendChild(card);
+    renderExecForm(d,meal,ex);
+  });
+}
+
+function renderExecForm(d,meal,ex){
+  const mealId=meal.id;
+  const formEl=document.getElementById('exec-form-'+mealId);
+  if(!formEl)return;
+
+  const estado=ex.estado||'';
+  const needsMotivo=requiresMotivo(estado);
+  const isSust=estado==='cumplida_con_sustitucion';
+
+  // Substitution options
+  let sustOpts='';
+  if(isSust){
+    const eqs=(meal.planned?.equivalencias_validas)||[];
+    const catSust=R.filter(r=>r.aptaSust||r.esEquivalencia);
+    const modoVal=ex.modo_sustitucion==='validada';
+    sustOpts=`
+      <div class="exec-row">
+        <div class="exec-label">Modo de sustitución</div>
+        <select onchange="saveExec(${d},'${esc(mealId)}',{modo_sustitucion:this.value});renderMealExecution()">
+          <option value="">— seleccionar —</option>
+          <option value="validada" ${ex.modo_sustitucion==='validada'?'selected':''}>Validada (del plan o catálogo)</option>
+          <option value="libre" ${ex.modo_sustitucion==='libre'?'selected':''}>Libre</option>
+        </select>
+      </div>
+      ${modoVal?`
+      <div class="exec-row">
+        <div class="exec-label">Equivalencia elegida</div>
+        <select onchange="saveExec(${d},'${esc(mealId)}',{equiv_elegida:this.value})">
+          <option value="">— seleccionar —</option>
+          ${eqs.map(e=>`<option value="${esc(e)}" ${ex.equiv_elegida===e?'selected':''}>${esc(e)}</option>`).join('')}
+          ${catSust.map(r=>`<option value="[catálogo] ${esc(r.nombre)}" ${ex.equiv_elegida==='[catálogo] '+r.nombre?'selected':''}>[catálogo] ${esc(r.nombre)}</option>`).join('')}
+        </select>
+      </div>`
+      :ex.modo_sustitucion==='libre'?`
+      <div class="exec-row">
+        <div class="exec-label">Sustitución libre</div>
+        <input type="text" placeholder="¿Con qué se sustituyó?" value="${esc(ex.sust_libre||'')}" onchange="saveExec(${d},'${esc(mealId)}',{sust_libre:this.value})">
+      </div>`:''}
+    `;
+  }
+
+  formEl.innerHTML=`
+    <div class="exec-row">
+      <div class="exec-label">Estado</div>
+      <select class="status-select" onchange="saveExec(${d},'${esc(mealId)}',{estado:this.value});renderMealExecution()">
+        <option value="">— seleccionar estado —</option>
+        ${ESTADOS.map(e=>`<option value="${e.val}" ${estado===e.val?'selected':''}>${e.label}</option>`).join('')}
+      </select>
+    </div>
+
+    ${estado?`
+    <div class="exec-row">
+      <div class="exec-label">Comida ejecutada</div>
+      <input type="text" placeholder="¿Qué se comió realmente?" value="${esc(ex.comida_real||'')}" onchange="saveExec(${d},'${esc(mealId)}',{comida_real:this.value})">
+    </div>
+    <div class="exec-row">
+      <div class="exec-label">Bloques reales</div>
+      <div class="br">
+        <div class="bw"><label>Prot B</label><input type="number" min="0" max="10" placeholder="—" value="${esc(ex.prot_real||'')}" onchange="saveExec(${d},'${esc(mealId)}',{prot_real:+this.value})"></div>
+        <div class="bw"><label>Carb B</label><input type="number" min="0" max="10" placeholder="—" value="${esc(ex.carb_real||'')}" onchange="saveExec(${d},'${esc(mealId)}',{carb_real:+this.value})"></div>
+        <div class="bw"><label>Grasa B</label><input type="number" min="0" max="10" placeholder="—" value="${esc(ex.grasa_real||'')}" onchange="saveExec(${d},'${esc(mealId)}',{grasa_real:+this.value})"></div>
+      </div>
+    </div>
+    ${sustOpts}
+    ${needsMotivo?`
+    <div class="exec-row">
+      <div class="exec-label">Motivo <span class="required-badge">Obligatorio</span></div>
+      <select onchange="saveExec(${d},'${esc(mealId)}',{motivo:this.value});if(this.value==='otro')document.getElementById('motivo-otro-${esc(mealId)}').style.display='block'">
+        <option value="">— seleccionar motivo —</option>
+        ${MOTIVOS.map(m=>`<option value="${m}" ${ex.motivo===m?'selected':''}>${m.replace(/_/g,' ')}</option>`).join('')}
+      </select>
+      <textarea id="motivo-otro-${esc(mealId)}" placeholder="Especifica el motivo..." style="margin-top:6px;display:${ex.motivo==='otro'?'block':'none'}" rows="2" onchange="saveExec(${d},'${esc(mealId)}',{motivo_otro:this.value})">${esc(ex.motivo_otro||'')}</textarea>
+    </div>
+    <div class="exec-row">
+      <div class="exec-label">Tipo de evento</div>
+      <select onchange="saveExec(${d},'${esc(mealId)}',{tipo_evento:this.value})">
+        <option value="">— tipo de evento —</option>
+        ${TIPO_EVENTO.map(t=>`<option value="${t}" ${ex.tipo_evento===t?'selected':''}>${t.replace(/_/g,' ')}</option>`).join('')}
+      </select>
+    </div>`:''}
+    <div class="exec-row">
+      <div class="exec-label">Nota</div>
+      <input type="text" placeholder="Nota corta opcional..." value="${esc(ex.nota||'')}" onchange="saveExec(${d},'${esc(mealId)}',{nota:this.value})">
+    </div>
+    `:''}
+  `;
+}
+
+// ══════════════════════════════════════════════════════
+// CALENDAR
+// ══════════════════════════════════════════════════════
+function calcStreak(){
+  let last=0;
+  for(let d=30;d>=1;d--){if(D[d]&&D[d].saved){last=d;break;}}
+  if(!last)return 0;
+  let s=0;for(let d=last;d>=1;d--){if(D[d]&&D[d].saved)s++;else break;}
+  return s;
+}
+
+function buildAlerts(){
+  const panel=document.getElementById('alerts-panel');if(!panel)return;
+  const alerts=[];
+  const saved=[];
+  for(let d=1;d<=30;d++){if(D[d]&&D[d].saved)saved.push({d,r:D[d]});}
+  if(saved.length<3){panel.innerHTML='';return;}
+  const last3=saved.slice(-3).map(x=>x.r);
+  const avgE=last3.reduce((a,r)=>a+(r.vitals?.energia||5),0)/3;
+  const avgA=last3.reduce((a,r)=>a+(r.vitals?.ansiedad||5),0)/3;
+  if(avgE<4&&avgA>6)alerts.push({type:'warn',icon:'⚡',title:'Energía baja + ansiedad elevada',text:`Últimos 3 días: energía ${avgE.toFixed(1)}/10, ansiedad ${avgA.toFixed(1)}/10. Revisar desayuno, recortar carga glucémica.`});
+  const streak=calcStreak();
+  if(saved.length>=3&&streak===1)alerts.push({type:'warn',icon:'🔁',title:'Racha interrumpida',text:'El sistema Zone no requiere perfección — requiere regresar en la siguiente comida, no el lunes.'});
+  if(streak>=5)alerts.push({type:'good',icon:'🟢',title:`Racha sólida: ${streak} días`,text:'Sears: la adherencia de 7 días ya es suficiente para cambios metabólicos medibles.'});
+  const lastDay=saved[saved.length-1].d;
+  if(lastDay===6)alerts.push({type:'info',icon:'📍',title:'Transición mañana: Fase 2',text:'El día 8 arranca Reconfigurar. Activa bloques Zone en Comidas.'});
+  if(lastDay===20)alerts.push({type:'info',icon:'📍',title:'Transición mañana: Fase 3',text:'El día 22 arranca Consolidar. Prepara lista de 10 comidas repetibles.'});
+  panel.innerHTML=alerts.map(a=>`<div class="alert ${a.type}"><div class="alert-icon">${a.icon}</div><div class="alert-text"><strong>${a.title}</strong>${a.text}</div></div>`).join('');
+}
+
 function buildWeeklySummaries(){
-  const el=document.getElementById('weekly-summaries');
-  if(!el)return;
-  const weeks=[
-    {label:'Semana 1',days:[1,2,3,4,5,6,7]},
-    {label:'Semana 2',days:[8,9,10,11,12,13,14]},
-    {label:'Semana 3',days:[15,16,17,18,19,20,21]},
-    {label:'Semana 4',days:[22,23,24,25,26,27,28,29,30]}
-  ];
+  const el=document.getElementById('weekly-summaries');if(!el)return;
+  const weeks=[{label:'Semana 1',days:[1,2,3,4,5,6,7]},{label:'Semana 2',days:[8,9,10,11,12,13,14]},{label:'Semana 3',days:[15,16,17,18,19,20,21]},{label:'Semana 4',days:[22,23,24,25,26,27,28,29,30]}];
   const html=weeks.map(w=>{
-    const saved=w.days.filter(d=>D[d]&&D[d].saved);
-    if(saved.length===0)return'';
-    const avgE=saved.reduce((a,d)=>a+(D[d].vitals?.energia||0),0)/saved.length;
-    const avgAnx=saved.reduce((a,d)=>a+(D[d].vitals?.ansiedad||0),0)/saved.length;
-    const pasos=saved.filter(d=>parseInt(D[d].pasos)>0);
-    const avgP=pasos.length?saved.reduce((a,d)=>a+(parseInt(D[d].pasos)||0),0)/saved.length:0;
-    let tc=0,mc=0;
-    saved.forEach(d=>{const p=ph(d);mc+=CL[p].length;tc+=(D[d].checks||[]).filter(Boolean).length;});
-    const comp=mc>0?Math.round((tc/mc)*100):0;
-    return`<div class="week-sum">
-      <div class="week-sum-header">
-        <div class="week-sum-title">${w.label}</div>
-        <div class="week-sum-range">${saved.length}/${w.days.length} días · D${w.days[0]}–D${w.days[w.days.length-1]}</div>
-      </div>
-      <div class="week-metrics">
-        <div class="wm"><div class="wm-val">${avgE.toFixed(1)}</div><div class="wm-label">Energía</div></div>
-        <div class="wm"><div class="wm-val">${avgAnx.toFixed(1)}</div><div class="wm-label">Ansiedad</div></div>
-        <div class="wm"><div class="wm-val">${avgP>0?Math.round(avgP/1000*10)/10+'k':'—'}</div><div class="wm-label">Pasos</div></div>
-        <div class="wm"><div class="wm-val">${comp}%</div><div class="wm-label">Protocolo</div></div>
-      </div>
-    </div>`;
+    const sv=w.days.filter(d=>D[d]&&D[d].saved);
+    if(!sv.length)return'';
+    const avgE=sv.reduce((a,d)=>a+(D[d].vitals?.energia||0),0)/sv.length;
+    const avgAn=sv.reduce((a,d)=>a+(D[d].vitals?.ansiedad||0),0)/sv.length;
+    const pa=sv.filter(d=>parseInt(D[d].pasos)>0);
+    const avgP=pa.length?sv.reduce((a,d)=>a+(parseInt(D[d].pasos)||0),0)/sv.length:0;
+    let tc=0,mc=0;sv.forEach(d=>{const p=ph(d);mc+=CL[p].length;tc+=(D[d].checks||[]).filter(Boolean).length;});
+    return`<div class="week-sum"><div class="week-sum-header"><div class="week-sum-title">${w.label}</div><div class="week-sum-range">${sv.length}/${w.days.length} días</div></div><div class="week-metrics"><div class="wm"><div class="wm-val">${avgE.toFixed(1)}</div><div class="wm-label">Energía</div></div><div class="wm"><div class="wm-val">${avgAn.toFixed(1)}</div><div class="wm-label">Ansiedad</div></div><div class="wm"><div class="wm-val">${avgP>0?Math.round(avgP/1000*10)/10+'k':'—'}</div><div class="wm-label">Pasos</div></div><div class="wm"><div class="wm-val">${mc?Math.round((tc/mc)*100):0}%</div><div class="wm-label">Protocolo</div></div></div></div>`;
   }).join('');
   el.innerHTML=html;
 }
 
 function buildDayPills(){
-  const c=document.getElementById('day-pills');
-  c.innerHTML='';
+  const c=document.getElementById('day-pills');c.innerHTML='';
   for(let i=1;i<=30;i++){
     const el=document.createElement('div');
-    el.className='pill'+(i===selDay?' active':'');
-    el.id='dp'+i;
-    el.style.cssText='font-size:10px;padding:4px 8px;';
-    el.textContent=i;
+    el.className='pill'+(i===selDay?' active':'');el.id='dp'+i;
+    el.style.cssText='font-size:10px;padding:4px 8px;';el.textContent=i;
     el.onclick=(()=>{const d=i;return()=>selectDay(d);})();
     c.appendChild(el);
   }
 }
 
-// ─── GRID (sin huecos) ──────────────────────────────────
 function buildGrid(filter){
   const grid=document.getElementById('day-grid');
   const wlabs=document.getElementById('wlabs-row');
@@ -624,14 +1120,11 @@ function buildGrid(filter){
   grid.style.gridTemplateColumns=`repeat(${cols},minmax(0,1fr))`;
   if(wlabs)wlabs.style.display=filter===0?'grid':'none';
   days.forEach(d=>{
-    const p=ph(d),rec=D[d]||{},checks=rec.checks||[],cl=CL[p];
-    const filled=checks.filter(Boolean).length;
+    const p=ph(d),rec=D[d]||{},checks=rec.checks||[],cl=CL[p],filled=checks.filter(Boolean).length;
     const cell=document.createElement('div');
     cell.className='dc ph'+p+(d===selDay?' sel':'')+(rec.saved?' saved':'');
     cell.onclick=(()=>{const dd=d;return()=>{selDay=dd;showView('dia');};})();
-    const scoreHtml=rec.saved
-      ?`<div class="dcs">${Math.round((filled/cl.length)*10)}<span style="font-size:8px;color:var(--ts)">/10</span></div>`
-      :`<div class="dcs e">—</div>`;
+    const scoreHtml=rec.saved?`<div class="dcs">${Math.round((filled/cl.length)*10)}<span style="font-size:8px;color:var(--ts)">/10</span></div>`:`<div class="dcs e">—</div>`;
     const dots=cl.map((_,i)=>`<div class="dot${checks[i]?' on':''}"></div>`).join('');
     cell.innerHTML=`<div class="dcn">D${d}</div>${scoreHtml}<div class="dcd">${dots}</div>`;
     grid.appendChild(cell);
@@ -642,8 +1135,7 @@ function buildGrid(filter){
 function filterPhase(n,el){
   phFilter=n;
   document.querySelectorAll('#phase-pills .pill').forEach(p=>p.classList.remove('active'));
-  el.classList.add('active');
-  buildGrid(n);
+  el.classList.add('active');buildGrid(n);
 }
 
 function updateStats(){
@@ -661,14 +1153,20 @@ function updateStats(){
   document.getElementById('s-pasos').textContent=pa.length?Math.round(pa.reduce((a,b)=>a+b,0)/pa.length).toLocaleString('es-MX'):'0';
 }
 
-// ─── DAY ────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════
+// DAY
+// ══════════════════════════════════════════════════════
 function selectDay(d){
   selDay=d;
   const p=ph(d),ph_=PH[p];
   document.getElementById('dd-badge').textContent=d;
   document.getElementById('dd-title').textContent='Día '+d;
   document.getElementById('dd-phase').textContent=ph_.name;
-  document.getElementById('comida-day-label').textContent=d;
+  // Keep comida day label in sync (Fase A — #2)
+  const cdl=document.getElementById('comida-day-label');
+  if(cdl)cdl.textContent=d;
+  const cpl=document.getElementById('comida-phase-label');
+  if(cpl)cpl.textContent=ph_.name;
   const pb=document.getElementById('phase-badge');pb.textContent=ph_.short;pb.className='pb '+ph_.cls;
   document.querySelectorAll('#day-pills .pill').forEach(el=>el.classList.remove('active'));
   const dpEl=document.getElementById('dp'+d);
@@ -681,8 +1179,7 @@ function selectDay(d){
   const v=rec.vitals||{};
   ['energia','mental','ansiedad','sueno'].forEach(k=>{
     const sl=document.getElementById('sl-'+k),lb=document.getElementById('lbl-'+k);
-    const val=v[k]||5;sl.value=val;lb.textContent=val;
-    sl.oninput=()=>lb.textContent=sl.value;
+    const val=v[k]||5;sl.value=val;lb.textContent=val;sl.oninput=()=>lb.textContent=sl.value;
   });
   document.getElementById('m-pasos').value=rec.pasos||'';
   document.getElementById('m-peso-dia').value=rec.peso||'';
@@ -694,10 +1191,8 @@ function selectDay(d){
 }
 
 function toggleCheck(d,i){
-  if(!D[d])D[d]={};
-  if(!D[d].checks)D[d].checks=[];
-  D[d].checks[i]=!D[d].checks[i];
-  selectDay(d);
+  if(!D[d])D[d]={};if(!D[d].checks)D[d].checks=[];
+  D[d].checks[i]=!D[d].checks[i];selectDay(d);
 }
 
 function saveDay(){
@@ -715,55 +1210,9 @@ function saveDay(){
   btn.disabled=false;btn.textContent='Guardar día';
 }
 
-// ─── MEALS ──────────────────────────────────────────────
-function toggleBlocks(){
-  blocksActive=!blocksActive;
-  document.getElementById('blocks-panel').style.display=blocksActive?'block':'none';
-  document.getElementById('toggle-blocks').textContent=blocksActive?'Desactivar bloques':'Activar bloques';
-  renderMeals();
-}
-
-function updateBlocksBar(){
-  const d=selDay,meals=BL[d]||{};
-  let total=0;
-  MEALS.forEach(m=>total+=parseInt((meals[m.id]||{}).protB)||0);
-  const meta=parseInt(document.getElementById('meta-bloques').value)||13;
-  const pct=Math.min(Math.round((total/meta)*100),100);
-  document.getElementById('bloques-total').textContent=total;
-  document.getElementById('bloques-meta').textContent=meta;
-  document.getElementById('bloques-pct').textContent=pct+'%';
-  document.getElementById('bloques-bar').style.width=pct+'%';
-}
-
-function renderMeals(){
-  const d=selDay,meals=BL[d]||{},container=document.getElementById('meals-container');
-  container.innerHTML='';
-  MEALS.forEach(m=>{
-    const md=meals[m.id]||{};
-    const hv=md.hambre||5;
-    const sec=document.createElement('div');sec.className='ms';
-    sec.innerHTML=`
-      <div class="mlabel"><div class="mi">${m.icon}</div>${m.label}${blocksActive?`<span style="font-size:9px;color:var(--steel);margin-left:auto;">meta ${m.b}B</span>`:''}</div>
-      ${blocksActive?`<div class="br">
-        <div class="bw"><label>Prot B</label><input type="number" min="0" max="8" placeholder="${m.b}" value="${md.protB||''}" onchange="saveMeal(${d},'${m.id}','protB',this.value)"></div>
-        <div class="bw"><label>Carb B</label><input type="number" min="0" max="8" placeholder="${m.b}" value="${md.carbB||''}" onchange="saveMeal(${d},'${m.id}','carbB',this.value)"></div>
-        <div class="bw"><label>Grasa B</label><input type="number" min="0" max="8" placeholder="${m.b}" value="${md.grasaB||''}" onchange="saveMeal(${d},'${m.id}','grasaB',this.value)"></div>
-      </div>`:''}
-      <input type="text" placeholder="${m.label}: ¿qué comiste?" value="${md.desc||''}" onchange="saveMeal(${d},'${m.id}','desc',this.value)" style="margin-bottom:5px;">
-      <div class="hr2"><label>Hambre previa</label><input type="range" min="1" max="10" step="1" value="${hv}" oninput="this.nextElementSibling.textContent=this.value;saveMeal(${d},'${m.id}','hambre',this.value)"><span class="hv2">${hv}</span></div>
-      <div class="divider" style="margin:8px 0;"></div>
-    `;
-    container.appendChild(sec);
-  });
-  updateBlocksBar();
-}
-
-function saveMeal(d,mid,field,val){
-  if(!BL[d])BL[d]={};if(!BL[d][mid])BL[d][mid]={};
-  BL[d][mid][field]=val;save();updateBlocksBar();
-}
-
-// ─── CHARTS ─────────────────────────────────────────────
+// ══════════════════════════════════════════════════════
+// CHARTS
+// ══════════════════════════════════════════════════════
 function drawCharts(){
   const labels=Array.from({length:30},(_,i)=>'D'+(i+1));
   function getArr(key,sub){return Array.from({length:30},(_,i)=>{const r=D[i+1];if(!r||!r.saved)return null;if(sub)return r[key]?parseFloat(r[key][sub])||null:null;return parseFloat(r[key])||null;});}
@@ -779,11 +1228,31 @@ function drawCharts(){
   ],{suggestedMin:1,suggestedMax:10});
   mkChart('chart-pasos',[{label:'Pasos',data:getArr('pasos'),borderColor:'#0B6ABF',backgroundColor:'rgba(11,106,191,.15)',fill:true,spanGaps:true}]);
   mkChart('chart-peso',[{label:'Peso',data:getArr('peso'),borderColor:'#0A3D6B',backgroundColor:'rgba(10,61,107,.1)',fill:true,spanGaps:true}]);
-  const cd=Array.from({length:30},(_,i)=>{const r=D[i+1];if(!r||!r.saved)return null;const p=ph(i+1);return Math.round(((r.checks||[]).filter(Boolean).length/CL[p].length)*100);});
-  mkChart('chart-checks',[{label:'%',data:cd,borderColor:'#1D9E75',backgroundColor:'rgba(29,158,117,.15)',fill:true,spanGaps:true}],{suggestedMin:0,suggestedMax:100});
+  // Adherence chart from execution data
+  const adhData=Array.from({length:30},(_,i)=>{
+    const d=i+1;const dayExec=E[d];
+    if(!dayExec)return null;
+    const vals=Object.values(dayExec);
+    if(!vals.length)return null;
+    const exactas=vals.filter(v=>v.estado==='cumplida_exacta').length;
+    const meals=getMealsForDay(d).length;
+    return meals?Math.round((exactas/meals)*100):null;
+  });
+  mkChart('chart-adh',[{label:'Adherencia %',data:adhData,borderColor:'#1D9E75',backgroundColor:'rgba(29,158,117,.15)',fill:true,spanGaps:true}],{suggestedMin:0,suggestedMax:100});
 }
 
-// ─── SEMAPHORES ─────────────────────────────────────────
+// ══════════════════════════════════════════════════════
+// SEMAPHORES
+// ══════════════════════════════════════════════════════
+const SEM_RULES={
+  tghdl:v=>v<1?'g':v<=3?'y':'r',
+  pcr:v=>v<1?'g':v<=3?'y':'r',
+  aaepa:v=>v<1?'i':v<=3?'g':v<=5?'y':'r',
+  hba1c:v=>v<4.9?'i':v<=5.1?'g':v<=5.4?'y':'r',
+  insulina:v=>v<5?'g':v<=10?'y':'r'
+};
+const SEM_LABEL={g:'En zona',y:'Atención',r:'Fuera de zona',i:'Valor inusual — verificar'};
+
 function updateSem(key,val){
   const el=document.getElementById('sem-'+key);if(!el)return;
   const v=parseFloat(val);
@@ -793,19 +1262,14 @@ function updateSem(key,val){
   el.innerHTML=`<div class="sem ${cls}"><div class="sem-dot"></div>${SEM_LABEL[cls]}</div>`;
 }
 
-function updateAllSems(){
-  Object.keys(SEM_RULES).forEach(k=>{const el=document.getElementById('mk-'+k);if(el&&el.value)updateSem(k,el.value);});
-}
+function updateAllSems(){Object.keys(SEM_RULES).forEach(k=>{const el=document.getElementById('mk-'+k);if(el&&el.value)updateSem(k,el.value);});}
 
-// ─── DELTA FUNCTIONS (live on input) ────────────────────
 function updateCinturaDelta(){
   const el=document.getElementById('cintura-delta');if(!el)return;
   const c0=parseFloat(document.getElementById('mk-cin-0').value);
   const c30=parseFloat(document.getElementById('mk-cin-30').value);
   if(isNaN(c0)||isNaN(c30)){el.innerHTML='';return;}
-  const delta=c30-c0;
-  const cls=delta<0?'g':delta===0?'y':'r';
-  const sign=delta<0?'':'+';
+  const delta=c30-c0,cls=delta<0?'g':delta===0?'y':'r',sign=delta<0?'':'+';
   el.innerHTML=`<div class="delta-box ${cls}"><span style="font-size:16px;">${delta<0?'↓':delta===0?'→':'↑'}</span><span>Cintura: ${sign}${delta.toFixed(1)} cm en 30 días</span></div>`;
 }
 
@@ -814,13 +1278,13 @@ function updatePesoDelta(){
   const p0=parseFloat(document.getElementById('mk-peso-ini').value);
   const p30=parseFloat(document.getElementById('mk-peso-fin').value);
   if(isNaN(p0)||isNaN(p30)){el.innerHTML='';return;}
-  const delta=p30-p0;
-  const cls=delta<0?'g':delta===0?'y':'r';
-  const sign=delta<0?'':'+';
+  const delta=p30-p0,cls=delta<0?'g':delta===0?'y':'r',sign=delta<0?'':'+';
   el.innerHTML=`<div class="delta-box ${cls}"><span style="font-size:16px;">${delta<0?'↓':delta===0?'→':'↑'}</span><span>Peso: ${sign}${delta.toFixed(1)} kg en 30 días</span></div>`;
 }
 
-// ─── MARKERS ────────────────────────────────────────────
+// ══════════════════════════════════════════════════════
+// MARKERS
+// ══════════════════════════════════════════════════════
 function loadMarkerFields(){
   const fields=['tghdl','pcr','aaepa','hba1c','insulina','glucosa','peso-ini','peso-15','peso-fin','cin-0','cin-2','cin-30'];
   fields.forEach(f=>{const el=document.getElementById('mk-'+f);if(el&&M[f]!==undefined)el.value=M[f];});
@@ -833,16 +1297,32 @@ function saveMarkers(){
   save();updateAllSems();updateCinturaDelta();updatePesoDelta();toast('Marcadores guardados');
 }
 
-// ─── RECIPES ────────────────────────────────────────────
+// ══════════════════════════════════════════════════════
+// CATALOG (Recipes)
+// ══════════════════════════════════════════════════════
 function addRecipe(){
   const nombre=document.getElementById('r-nombre').value.trim();
   if(!nombre){toast('Agrega un nombre');return;}
   const tags=Array.from(document.querySelectorAll('#tag-checkboxes input:checked')).map(i=>i.value);
-  R.push({id:Date.now(),nombre,tipo:document.getElementById('r-tipo').value,desc:document.getElementById('r-desc').value,bloques:document.getElementById('r-bloques').value,mantiene:document.getElementById('r-mantiene').value,tags});
+  R.push({
+    id:Date.now(),nombre,
+    tipo:document.getElementById('r-tipo').value,
+    desc:document.getElementById('r-desc').value,
+    protB:document.getElementById('r-prot').value,
+    carbB:document.getElementById('r-carb').value,
+    grasaB:document.getElementById('r-grasa').value,
+    mantiene:document.getElementById('r-mantiene').value,
+    esEquivalencia:document.getElementById('r-esEquivalencia').checked,
+    aptaSust:document.getElementById('r-aptaSust').checked,
+    notaOp:document.getElementById('r-nota-op').value,
+    tags
+  });
   save();
-  document.getElementById('r-nombre').value='';document.getElementById('r-desc').value='';document.getElementById('r-bloques').value='';
+  ['r-nombre','r-desc','r-prot','r-carb','r-grasa','r-nota-op'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('r-esEquivalencia').checked=false;
+  document.getElementById('r-aptaSust').checked=false;
   document.querySelectorAll('#tag-checkboxes input').forEach(i=>i.checked=false);
-  renderRecipes();toast('Comida guardada');
+  renderRecipes();toast('Comida agregada al catálogo');
 }
 
 function deleteRecipe(id){R=R.filter(r=>r.id!==id);save();renderRecipes();}
@@ -852,49 +1332,64 @@ function renderRecipes(){
   if(!R.length){list.innerHTML='';empty.style.display='block';return;}
   empty.style.display='none';
   const ml={si:'✓ 4–5h',mas:'~ Más o menos',no:'✗ No mantiene'};
-  const tl={ansiedad:'😮‍💨 Ansiedad',viaje:'✈️ Viaje',rapida:'⚡ Rápida',recaida:'🔄 Recaída'};
+  const tl={ansiedad:'😮‍💨 Ansiedad',viaje:'✈️ Viaje',rapida:'⚡ Rápida',recaida:'🔄 Recaída',permiso:'✋ Permiso',libre:'🍽 Libre'};
   list.innerHTML=R.map(r=>`
     <div class="ri">
       <button class="rdel" onclick="deleteRecipe(${r.id})">×</button>
       <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-bottom:5px;">
-        <span style="background:var(--ice);color:var(--blue);font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:8px;">${r.tipo}</span>
-        ${r.bloques?`<span style="font-size:10px;color:var(--steel);">${r.bloques}B prot</span>`:''}
+        <span style="background:var(--ice);color:var(--blue);font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:8px;">${esc(r.tipo)}</span>
+        ${r.protB?`<span class="block-chip">P:${esc(r.protB)}B</span>`:''}
+        ${r.carbB?`<span class="block-chip">C:${esc(r.carbB)}B</span>`:''}
+        ${r.grasaB?`<span class="block-chip">G:${esc(r.grasaB)}B</span>`:''}
         <span style="font-size:10px;color:${r.mantiene==='si'?'var(--green)':r.mantiene==='no'?'#c33':'var(--amber)'};">${ml[r.mantiene]||''}</span>
+        ${r.esEquivalencia?'<span style="background:var(--gp);color:var(--gd);font-size:9px;padding:1px 5px;border-radius:4px;font-weight:600;">Equiv</span>':''}
+        ${r.aptaSust?'<span style="background:var(--ap);color:#7a4f0a;font-size:9px;padding:1px 5px;border-radius:4px;font-weight:600;">Sust</span>':''}
       </div>
-      <div class="rn">${r.nombre}</div>
-      ${r.desc?`<div class="rm">${r.desc}</div>`:''}
-      ${r.tags&&r.tags.length?`<div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:5px;">${r.tags.map(t=>`<span style="background:var(--cloud);color:var(--tm);font-size:10px;padding:2px 7px;border-radius:6px;">${tl[t]||t}</span>`).join('')}</div>`:''}
+      <div class="rn">${esc(r.nombre)}</div>
+      ${r.desc?`<div class="rm">${esc(r.desc)}</div>`:''}
+      ${r.notaOp?`<div style="font-size:11px;color:var(--ts);margin-top:2px;">📌 ${esc(r.notaOp)}</div>`:''}
+      ${r.tags&&r.tags.length?`<div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:5px;">${r.tags.map(t=>`<span style="background:var(--cloud);color:var(--tm);font-size:10px;padding:2px 7px;border-radius:6px;">${esc(tl[t]||t)}</span>`).join('')}</div>`:''}
     </div>
   `).join('');
 }
 
-// ─── EXPORT ─────────────────────────────────────────────
+// ══════════════════════════════════════════════════════
+// EXPORT
+// ══════════════════════════════════════════════════════
 function exportData(){
-  let txt='MI ZONA TRACKER v2.2 — EXPORTACIÓN\n'+new Date().toLocaleDateString('es-MX',{weekday:'long',year:'numeric',month:'long',day:'numeric'})+'\n\n';
+  let txt='MI ZONA TRACKER v3.0 — EXPORTACIÓN\n'+new Date().toLocaleDateString('es-MX',{weekday:'long',year:'numeric',month:'long',day:'numeric'})+'\n\n';
+  if(P)txt+=`=== PLAN CARGADO ===\nMes: ${P.month} · Archivo: ${P.sourceFileName}\n\n`;
   txt+='=== MARCADORES ===\n';
   Object.entries(M).forEach(([k,v])=>{if(v)txt+=k+': '+v+'\n';});
   txt+='\n=== REGISTRO DIARIO ===\n';
   for(let d=1;d<=30;d++){
     const r=D[d];if(!r||!r.saved)continue;
     const p=ph(d);txt+='\nDía '+d+' ('+PH[p].name+')\n';
-    if(r.vitals)txt+='  E:'+r.vitals.energia+' C:'+r.vitals.mental+' A:'+r.vitals.ansiedad+' S:'+r.vitals.sueno+'\n';
+    if(r.vitals)txt+='  Vitales — E:'+r.vitals.energia+' C:'+r.vitals.mental+' A:'+r.vitals.ansiedad+' S:'+r.vitals.sueno+'\n';
     if(r.pasos)txt+='  Pasos: '+r.pasos+'\n';
     if(r.peso)txt+='  Peso: '+r.peso+' kg\n';
     if(r.detonante)txt+='  Detonante: '+r.detonante+'\n';
     if(r.impulso)txt+='  Impulso: '+r.impulso+'\n';
     if(r.sustitucion)txt+='  Sustitución: '+r.sustitucion+'\n';
     if(r.note)txt+='  Nota: '+r.note+'\n';
-    const done=(r.checks||[]).filter(Boolean).length;
-    txt+='  Protocolos: '+done+'/'+CL[p].length+'\n';
+    const execDay=E[d];
+    if(execDay){
+      txt+='  Ejecución comidas:\n';
+      Object.entries(execDay).forEach(([mid,ex])=>{
+        if(ex.estado)txt+=`    ${mid}: ${ex.estado}${ex.comida_real?' → '+ex.comida_real:''}${ex.motivo?' ['+ex.motivo+']':''}\n`;
+      });
+    }
   }
-  txt+='\n=== COMIDAS REPETIBLES ===\n';
-  R.forEach(r=>txt+=r.tipo+' — '+r.nombre+(r.bloques?' ('+r.bloques+'B)':'')+(r.tags&&r.tags.length?' ['+r.tags.join(',')+']':'')+'\n');
+  txt+='\n=== CATÁLOGO ===\n';
+  R.forEach(r=>txt+=`${r.tipo} — ${r.nombre}${r.protB?' P:'+r.protB+'B':''}${r.carbB?' C:'+r.carbB+'B':''}${r.grasaB?' G:'+r.grasaB+'B':''}${r.tags?.length?' ['+r.tags.join(',')+']':''}\n`);
   const blob=new Blob([txt],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');
-  a.href=url;a.download='mizona-v22-'+new Date().toISOString().split('T')[0]+'.txt';
+  a.href=url;a.download='mizona-v3-'+new Date().toISOString().split('T')[0]+'.txt';
   a.click();URL.revokeObjectURL(url);toast('Datos exportados');
 }
 
-// ─── INIT ────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════════════
 load();buildDayPills();selectDay(1);buildGrid(0);renderRecipes();buildAlerts();buildWeeklySummaries();
 </script>
 </body>
