@@ -6,48 +6,43 @@
 <title>Mi Zona — Tracker 30 días</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root {
+:root{
   --blue:#0B6ABF;--navy:#0A3D6B;--sky:#4A9FE5;--ice:#E8F1FA;--steel:#6B7B8D;
-  --cloud:#F0F2F5;--white:#FFFFFF;--green:#1D9E75;--gd:#0F6E56;--gp:#E1F5EE;
-  --amber:#EF9F27;--ap:#FEF3DC;--red:#E24B4A;--rp:#FDEAEA;
+  --cloud:#F0F2F5;--white:#FFF;--green:#1D9E75;--gd:#0F6E56;--gp:#E1F5EE;
+  --amber:#EF9F27;--ap:#FEF3DC;--red:#E24B4A;--rp:#FDEAEA;--reddark:#8a2222;
   --text:#1a2332;--tm:#4a5568;--ts:#8a9ab0;
-  --border:rgba(10,61,107,0.1);--bm:rgba(10,61,107,0.18);
+  --border:rgba(10,61,107,.1);--bm:rgba(10,61,107,.18);
   --r:10px;--rl:14px;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 body{font-family:'Source Sans 3',sans-serif;background:var(--cloud);color:var(--text);min-height:100vh;font-size:15px;}
-/* HEADER */
-.app-header{background:linear-gradient(135deg,var(--blue),var(--navy));padding:1rem 1.25rem 0;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(10,61,107,0.3);}
+.app-header{background:linear-gradient(135deg,var(--blue),var(--navy));padding:1rem 1.25rem 0;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(10,61,107,.3);}
 .header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;}
 .brand{display:flex;align-items:center;gap:10px;}
-.brand-mark{width:32px;height:32px;background:rgba(255,255,255,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;color:#fff;}
+.brand-mark{width:32px;height:32px;background:rgba(255,255,255,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;color:#fff;}
 .brand-text h1{font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px;color:#fff;letter-spacing:.02em;text-transform:uppercase;}
-.brand-text p{font-size:11px;color:rgba(255,255,255,0.5);margin-top:1px;}
+.brand-text p{font-size:11px;color:rgba(255,255,255,.5);margin-top:1px;}
 .hstats{display:flex;gap:1rem;text-align:right;}
 .hv{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:#fff;line-height:1;}
-.hl{font-size:10px;color:rgba(255,255,255,0.45);margin-top:2px;text-transform:uppercase;letter-spacing:.05em;}
-.hprog{height:3px;background:rgba(255,255,255,0.15);}
+.hl{font-size:10px;color:rgba(255,255,255,.45);margin-top:2px;text-transform:uppercase;letter-spacing:.05em;}
+.hprog{height:3px;background:rgba(255,255,255,.15);}
 .hpf{height:100%;background:var(--sky);transition:width .5s ease;}
-/* NAV */
 .nav-tabs{display:flex;background:var(--white);border-bottom:1px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;position:sticky;top:85px;z-index:99;}
 .nav-tabs::-webkit-scrollbar{display:none;}
 .ntab{flex-shrink:0;padding:10px 16px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;color:var(--steel);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;}
 .ntab.active{color:var(--blue);border-bottom-color:var(--blue);}
 .ntab:hover:not(.active){color:var(--tm);background:var(--cloud);}
-/* LAYOUT */
 .view{display:none;padding:1rem;}
 .view.active{display:block;}
 .card{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);padding:1rem;margin-bottom:12px;}
 .ct{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--steel);margin-bottom:10px;}
-/* PILLS */
 .pills{display:flex;gap:6px;margin-bottom:1rem;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;}
 .pills::-webkit-scrollbar{display:none;}
 .pill{flex-shrink:0;padding:5px 12px;border-radius:20px;border:1px solid var(--bm);font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;cursor:pointer;background:var(--white);color:var(--steel);transition:all .15s;text-transform:uppercase;letter-spacing:.03em;}
 .pill.active{background:var(--navy);color:#fff;border-color:var(--navy);}
-/* CALENDAR */
 .wlabs{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;margin-bottom:4px;}
-.wl{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;color:var(--ts);text-align:center;text-transform:uppercase;letter-spacing:.04em;}
-.dgrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;}
+.wl{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;color:var(--ts);text-align:center;text-transform:uppercase;}
+.dgrid{display:grid;gap:4px;}
 .dc{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:6px 4px;cursor:pointer;transition:all .15s;min-height:58px;position:relative;overflow:hidden;}
 .dc::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
 .dc.ph1::after{background:var(--green);}
@@ -62,17 +57,14 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--cloud);color:var(--
 .dcd{display:flex;gap:2px;flex-wrap:wrap;margin-top:4px;}
 .dot{width:4px;height:4px;border-radius:50%;background:var(--bm);}
 .dot.on{background:var(--green);}
-/* STATS */
 .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
 .sb{background:var(--ice);border-radius:var(--r);padding:10px 12px;}
 .sv{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--navy);line-height:1;}
 .sl{font-size:11px;color:var(--steel);margin-top:3px;}
-/* DAY DETAIL */
 .ddh{display:flex;align-items:center;gap:10px;margin-bottom:1rem;}
 .dbadge{width:44px;height:44px;background:linear-gradient(135deg,var(--blue),var(--navy));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px;color:#fff;flex-shrink:0;}
 .ddt{font-family:'Montserrat',sans-serif;font-size:17px;font-weight:700;color:var(--text);}
 .ddp{font-size:12px;color:var(--blue);margin-top:1px;}
-/* CHECKLIST */
 .cklist{display:flex;flex-direction:column;gap:3px;}
 .ci{display:flex;align-items:flex-start;gap:8px;padding:7px 8px;border-radius:8px;cursor:pointer;transition:background .1s;}
 .ci:hover{background:var(--ice);}
@@ -80,42 +72,42 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--cloud);color:var(--
 .cb.on{background:var(--blue);border-color:var(--blue);}
 .cb.on::after{content:'';display:block;width:5px;height:8px;border:2px solid #fff;border-top:none;border-left:none;transform:rotate(45deg) translate(-1px,-1px);}
 .cil{font-size:13px;color:var(--text);line-height:1.4;}
-/* SLIDERS */
 .sr{margin-bottom:10px;}
 .sr label{display:flex;justify-content:space-between;font-size:12px;color:var(--tm);margin-bottom:4px;}
 .sr label strong{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--text);}
 input[type=range]{width:100%;height:4px;-webkit-appearance:none;background:var(--cloud);border-radius:2px;outline:none;cursor:pointer;}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--blue);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 4px rgba(11,106,191,.35);}
-/* INPUTS */
 input[type=text],input[type=number],textarea,select{width:100%;background:var(--cloud);border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-size:14px;color:var(--text);font-family:'Source Sans 3',sans-serif;outline:none;transition:border-color .15s;-webkit-appearance:none;}
 input[type=text]:focus,input[type=number]:focus,textarea:focus,select:focus{border-color:var(--blue);background:#fff;}
 textarea{resize:none;line-height:1.5;}
 input::placeholder,textarea::placeholder{color:var(--ts);}
-/* METRICS */
 .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
 .mb{background:var(--ice);border-radius:8px;padding:8px 10px;}
 .mb label{display:block;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--steel);margin-bottom:5px;}
 .mb input{background:transparent;border:none;padding:0;font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:var(--text);width:100%;outline:none;}
 .mb .u{font-size:10px;color:var(--ts);margin-top:1px;}
-/* REGULA */
 .reg-grid{display:grid;grid-template-columns:1fr;gap:8px;margin-top:8px;}
 .reg-item label{display:block;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;}
 .reg-item.det label{color:#7a4f0a;}
-.reg-item.imp label{color:#8a2222;}
+.reg-item.imp label{color:var(--reddark);}
 .reg-item.sus label{color:var(--gd);}
-/* MEALS */
 .ms{margin-bottom:14px;}
-.ml{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--blue);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.mlabel{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--blue);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
 .mi{width:20px;height:20px;background:var(--ice);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:11px;}
 .br{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:6px;}
 .bw{background:var(--ice);border-radius:8px;padding:6px 8px;}
 .bw label{display:block;font-size:9px;font-weight:600;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;font-family:'Montserrat',sans-serif;}
 .bw input{background:transparent;border:none;padding:0;font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:var(--text);width:100%;outline:none;}
-.hr{display:flex;align-items:center;gap:8px;margin-top:5px;}
-.hr label{font-size:12px;color:var(--tm);white-space:nowrap;}
-.hr input[type=range]{flex:1;}
+.hr2{display:flex;align-items:center;gap:8px;margin-top:5px;}
+.hr2 label{font-size:12px;color:var(--tm);white-space:nowrap;}
+.hr2 input[type=range]{flex:1;}
 .hv2{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--text);min-width:24px;text-align:right;}
-/* BUTTONS */
+/* Blocks progress bar */
+.blocks-prog{margin-top:8px;}
+.blocks-prog-label{display:flex;justify-content:space-between;font-size:11px;color:var(--tm);margin-bottom:4px;}
+.blocks-prog-label strong{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);}
+.bpbar{height:8px;background:var(--cloud);border-radius:4px;overflow:hidden;}
+.bpfill{height:100%;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:4px;transition:width .3s ease;}
 .btn{display:block;width:100%;padding:11px;border:none;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.06em;transition:all .15s;text-align:center;}
 .btn-b{background:var(--blue);color:#fff;}
 .btn-b:hover{background:var(--navy);}
@@ -125,45 +117,66 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
 .btn-o:hover{background:var(--ice);}
 .btn-sm{padding:7px 12px;font-size:11px;width:auto;display:inline-block;}
 .divider{height:1px;background:var(--border);margin:12px 0;}
-/* MARKERS */
 .mkr{display:flex;justify-content:space-between;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border);}
 .mkr:last-of-type{border-bottom:none;}
 .mkl{flex:1;}
 .mkn{font-size:13px;color:var(--tm);}
 .mkg{font-size:10px;color:var(--ts);margin-top:1px;}
 .mkin{width:96px;text-align:right;padding:5px 8px;font-size:13px;}
-/* SEMAPHORE */
+/* Semaphore */
 .sem{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;margin-top:4px;}
 .sem.g{background:var(--gp);color:var(--gd);}
 .sem.y{background:var(--ap);color:#7a4f0a;}
-.sem.r{background:var(--rp);color:#8a2222;}
+.sem.r{background:var(--rp);color:var(--reddark);}
+.sem.i{background:var(--ice);color:var(--steel);}
 .sem-dot{width:7px;height:7px;border-radius:50%;}
 .sem.g .sem-dot{background:var(--green);}
 .sem.y .sem-dot{background:var(--amber);}
 .sem.r .sem-dot{background:var(--red);}
-/* CINTURA SEMANAL */
+.sem.i .sem-dot{background:var(--steel);}
+/* Delta box */
+.delta-box{margin-top:10px;padding:8px 10px;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;display:flex;align-items:center;gap:8px;}
+.delta-box.g{background:var(--gp);color:var(--gd);}
+.delta-box.y{background:var(--ap);color:#7a4f0a;}
+.delta-box.r{background:var(--rp);color:var(--reddark);}
+/* Cintura semanal */
 .csem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px;}
 .csem-item{background:var(--ice);border-radius:8px;padding:8px 10px;text-align:center;}
 .csem-label{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--steel);margin-bottom:5px;}
 .csem-input{background:transparent;border:none;font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:var(--text);width:100%;text-align:center;outline:none;padding:0;}
-/* CHARTS */
+/* Alerts */
+.alert{border-radius:8px;padding:10px 12px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start;}
+.alert.warn{background:var(--ap);border-left:3px solid var(--amber);}
+.alert.info{background:var(--ice);border-left:3px solid var(--blue);}
+.alert.good{background:var(--gp);border-left:3px solid var(--green);}
+.alert-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+.alert-text{font-size:12px;line-height:1.5;color:var(--text);}
+.alert-text strong{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:2px;}
+/* Weekly summary */
+.week-sum{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);padding:1rem;margin-bottom:12px;}
+.week-sum-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.week-sum-title{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--navy);}
+.week-sum-range{font-size:11px;color:var(--ts);}
+.week-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
+.wm{background:var(--cloud);border-radius:8px;padding:7px 6px;text-align:center;}
+.wm-val{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:var(--navy);line-height:1;}
+.wm-label{font-size:9px;color:var(--ts);margin-top:2px;text-transform:uppercase;letter-spacing:.04em;}
+/* Charts */
 .chwrap{position:relative;height:160px;margin-top:8px;}
 .chleg{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;}
 .cli{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--tm);}
 .cld{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-/* RECIPES */
+/* Recipes */
 .ri{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:10px 12px;margin-bottom:8px;position:relative;}
 .rn{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;}
 .rm{font-size:12px;color:var(--ts);}
 .rdel{position:absolute;top:8px;right:10px;width:22px;height:22px;background:#fee;border:none;border-radius:5px;color:#c33;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
 .arf{background:var(--ice);border-radius:var(--r);padding:12px;margin-bottom:12px;}
 .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
-/* BADGE */
 .pb{display:inline-flex;align-items:center;padding:2px 8px;border-radius:10px;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;}
 .pb.ph1{background:var(--gp);color:var(--gd);}
 .pb.ph2{background:var(--ap);color:#7a4f0a;}
 .pb.ph3{background:var(--ice);color:var(--navy);}
-/* TOAST */
 .toast{position:fixed;bottom:20px;right:16px;background:var(--navy);color:#fff;padding:9px 16px;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;opacity:0;transform:translateY(10px);transition:all .25s;pointer-events:none;z-index:999;box-shadow:0 4px 16px rgba(10,61,107,.35);}
 .toast.show{opacity:1;transform:translateY(0);}
 .app-footer{text-align:center;padding:1.5rem 1rem;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;color:var(--ts);text-transform:uppercase;letter-spacing:.1em;}
@@ -200,6 +213,7 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
 
 <!-- ══ CALENDARIO ══ -->
 <div class="view active" id="view-cal">
+  <div id="alerts-panel"></div>
   <div class="pills" id="phase-pills">
     <div class="pill active" onclick="filterPhase(0,this)">Todos</div>
     <div class="pill" onclick="filterPhase(1,this)">Fase 1 · 1–7</div>
@@ -207,12 +221,13 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
     <div class="pill" onclick="filterPhase(3,this)">Fase 3 · 22–30</div>
   </div>
   <div class="card" style="padding:10px;">
-    <div class="wlabs">
+    <div class="wlabs" id="wlabs-row">
       <div class="wl">Lun</div><div class="wl">Mar</div><div class="wl">Mié</div>
       <div class="wl">Jue</div><div class="wl">Vie</div><div class="wl">Sáb</div><div class="wl">Dom</div>
     </div>
     <div class="dgrid" id="day-grid"></div>
   </div>
+  <div id="weekly-summaries"></div>
   <div class="sgrid">
     <div class="sb"><div class="sv" id="s-done">0</div><div class="sl">días registrados</div></div>
     <div class="sb"><div class="sv" id="s-streak">0</div><div class="sl">racha actual</div></div>
@@ -233,7 +248,6 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
     </div>
     <div id="day-pills" style="display:flex;gap:4px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;"></div>
   </div>
-
   <div class="card">
     <div class="ct">Protocolo del día <span class="pb ph1" id="phase-badge">Fase 1</span></div>
     <div class="cklist" id="checklist"></div>
@@ -243,7 +257,6 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
       <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--blue);" id="check-count">0/0</span>
     </div>
   </div>
-
   <div class="card">
     <div class="ct">Señales vitales</div>
     <div class="sr"><label>Energía <strong id="lbl-energia">5</strong>/10</label><input type="range" min="1" max="10" value="5" step="1" id="sl-energia" oninput="document.getElementById('lbl-energia').textContent=this.value"></div>
@@ -255,32 +268,19 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
       <div class="mb"><label>Peso hoy</label><input type="number" id="m-peso-dia" placeholder="—" step="0.1"><div class="u">kg</div></div>
     </div>
   </div>
-
   <div class="card">
     <div class="ct">Regulación del día</div>
-    <div style="background:var(--ap);border-radius:8px;padding:8px 10px;margin-bottom:8px;font-size:11px;color:#7a4f0a;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:.03em;">Estos tres campos vuelven medible la regulación — no solo reflexiva.</div>
+    <div style="background:var(--ap);border-radius:8px;padding:8px 10px;margin-bottom:10px;font-size:11px;color:#7a4f0a;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:.03em;">Tres campos que vuelven la regulación medible, no solo reflexiva.</div>
     <div class="reg-grid">
-      <div class="reg-item det">
-        <label>Detonante del día</label>
-        <textarea id="r-detonante" rows="2" placeholder="¿Qué situación, emoción o momento activó el impulso?"></textarea>
-      </div>
-      <div class="reg-item imp">
-        <label>¿Qué intenté regular con comida?</label>
-        <textarea id="r-impulso" rows="2" placeholder="Ansiedad, aburrimiento, tensión, cansancio..."></textarea>
-      </div>
-      <div class="reg-item sus">
-        <label>Sustitución realizada</label>
-        <textarea id="r-sustitucion" rows="2" placeholder="¿Qué hice en vez de automatizarme?"></textarea>
-      </div>
+      <div class="reg-item det"><label>Detonante del día</label><textarea id="r-detonante" rows="2" placeholder="¿Qué situación, emoción o momento activó el impulso?"></textarea></div>
+      <div class="reg-item imp"><label>¿Qué intenté regular con comida?</label><textarea id="r-impulso" rows="2" placeholder="Ansiedad, aburrimiento, tensión, cansancio..."></textarea></div>
+      <div class="reg-item sus"><label>Sustitución realizada</label><textarea id="r-sustitucion" rows="2" placeholder="¿Qué hice en vez de automatizarme?"></textarea></div>
     </div>
     <div class="divider"></div>
     <div class="ct" style="margin-bottom:6px;">Nota libre</div>
-    <textarea id="day-note" rows="3" placeholder="¿Qué necesitaba realmente? Observaciones del día..."></textarea>
+    <textarea id="day-note" rows="3" placeholder="Observaciones del día..."></textarea>
   </div>
-
-  <div style="padding:0 0 12px;">
-    <button class="btn btn-b" id="save-btn" onclick="saveDay()">Guardar día</button>
-  </div>
+  <div style="padding:0 0 12px;"><button class="btn btn-b" id="save-btn" onclick="saveDay()">Guardar día</button></div>
 </div>
 
 <!-- ══ COMIDAS ══ -->
@@ -295,11 +295,11 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
       <button class="btn btn-o btn-sm" id="toggle-blocks" onclick="toggleBlocks()">Activar bloques</button>
     </div>
     <div id="blocks-panel" style="display:none;background:var(--ice);border-radius:8px;padding:10px;margin-bottom:12px;">
-      <div style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--blue);margin-bottom:6px;">1 bloque = 7g proteína · 9g carb · 1.5g grasa</div>
-      <div class="fgrid">
+      <div style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--blue);margin-bottom:8px;">1 bloque = 7g proteína · 9g carb · 1.5g grasa</div>
+      <div class="fgrid" style="margin-bottom:8px;">
         <div>
           <label style="font-size:11px;color:var(--steel);font-family:'Montserrat',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:4px;">Meta diaria</label>
-          <select id="meta-bloques" style="font-size:13px;padding:6px 8px;">
+          <select id="meta-bloques" style="font-size:13px;padding:6px 8px;" onchange="updateBlocksBar()">
             <option value="11">11 bloques (~70kg)</option>
             <option value="12">12 bloques (~80kg)</option>
             <option value="13" selected>13 bloques (~90kg)</option>
@@ -308,8 +308,12 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
         </div>
         <div style="background:var(--white);border-radius:8px;padding:8px;text-align:center;">
           <div style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--navy);" id="bloques-total">0</div>
-          <div style="font-size:10px;color:var(--steel);">proteína registrada</div>
+          <div style="font-size:10px;color:var(--steel);">/ <span id="bloques-meta">13</span> bloques proteína</div>
         </div>
+      </div>
+      <div class="blocks-prog">
+        <div class="blocks-prog-label"><span>Progreso</span><strong id="bloques-pct">0%</strong></div>
+        <div class="bpbar"><div class="bpfill" id="bloques-bar" style="width:0%"></div></div>
       </div>
     </div>
     <div id="meals-container"></div>
@@ -327,9 +331,8 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
 <!-- ══ MARCADORES ══ -->
 <div class="view" id="view-mks">
   <div class="card" style="background:var(--ice);border-color:transparent;margin-bottom:12px;">
-    <div style="font-size:12px;color:var(--navy);line-height:1.6;">La meta a 30 días no es normalizar todo — es demostrar que el sistema ya cambió de dirección. El semáforo usa umbrales Zone.</div>
+    <div style="font-size:12px;color:var(--navy);line-height:1.6;">La meta a 30 días es demostrar que el sistema cambió de dirección. Los semáforos usan umbrales Zone exactos.</div>
   </div>
-
   <div class="card">
     <div class="ct">Perfil inflamatorio</div>
     <div class="mkr">
@@ -341,19 +344,18 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
       <input class="mkin" id="mk-pcr" type="number" step="0.1" placeholder="—" oninput="updateSem('pcr',this.value)">
     </div>
     <div class="mkr">
-      <div class="mkl"><div class="mkn">AA / EPA</div><div class="mkg">Verde 1.5–3 · Amarillo 3–5 · Rojo &gt;5</div><div id="sem-aaepa"></div></div>
+      <div class="mkl"><div class="mkn">AA / EPA</div><div class="mkg">Verde 1.5–3 · Amarillo 3–5 · Rojo &gt;5 o &lt;1</div><div id="sem-aaepa"></div></div>
       <input class="mkin" id="mk-aaepa" type="number" step="0.1" placeholder="—" oninput="updateSem('aaepa',this.value)">
     </div>
   </div>
-
   <div class="card">
     <div class="ct">Metabolismo glucémico</div>
     <div class="mkr">
-      <div class="mkl"><div class="mkn">HbA1c</div><div class="mkg">Verde 4.9–5.1% · Amarillo 5.2–5.4% · Rojo &gt;5.4%</div><div id="sem-hba1c"></div></div>
+      <div class="mkl"><div class="mkn">HbA1c</div><div class="mkg">Verde 4.9–5.1 · Amarillo 5.2–5.4 · Rojo &gt;5.4 o &lt;4.9</div><div id="sem-hba1c"></div></div>
       <input class="mkin" id="mk-hba1c" type="number" step="0.1" placeholder="—" oninput="updateSem('hba1c',this.value)">
     </div>
     <div class="mkr">
-      <div class="mkl"><div class="mkn">Insulina en ayunas</div><div class="mkg">Meta: ↓ · Verde &lt;5 · Amarillo 5–10 · Rojo &gt;10</div><div id="sem-insulina"></div></div>
+      <div class="mkl"><div class="mkn">Insulina en ayunas</div><div class="mkg">Verde &lt;5 · Amarillo 5–10 · Rojo &gt;10</div><div id="sem-insulina"></div></div>
       <input class="mkin" id="mk-insulina" type="number" step="0.1" placeholder="—" oninput="updateSem('insulina',this.value)">
     </div>
     <div class="mkr">
@@ -361,25 +363,23 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
       <input class="mkin" id="mk-glucosa" type="number" step="1" placeholder="—">
     </div>
   </div>
-
   <div class="card">
-    <div class="ct">Antropometría — peso</div>
-    <div class="mkr"><div class="mkl"><div class="mkn">Peso inicial (día 0)</div></div><input class="mkin" id="mk-peso-ini" type="number" placeholder="—" step="0.1"></div>
-    <div class="mkr"><div class="mkl"><div class="mkn">Peso día 15</div></div><input class="mkin" id="mk-peso-15" type="number" placeholder="—" step="0.1"></div>
-    <div class="mkr"><div class="mkl"><div class="mkn">Peso día 30</div></div><input class="mkin" id="mk-peso-fin" type="number" placeholder="—" step="0.1"></div>
+    <div class="ct">Peso — evolución</div>
+    <div class="mkr"><div class="mkl"><div class="mkn">Peso inicial (día 0)</div></div><input class="mkin" id="mk-peso-ini" type="number" placeholder="—" step="0.1" oninput="updatePesoDelta()"></div>
+    <div class="mkr"><div class="mkl"><div class="mkn">Peso día 15</div></div><input class="mkin" id="mk-peso-15" type="number" placeholder="—" step="0.1" oninput="updatePesoDelta()"></div>
+    <div class="mkr"><div class="mkl"><div class="mkn">Peso día 30</div></div><input class="mkin" id="mk-peso-fin" type="number" placeholder="—" step="0.1" oninput="updatePesoDelta()"></div>
+    <div id="peso-delta"></div>
   </div>
-
   <div class="card">
     <div class="ct">Cintura abdominal — seguimiento semanal</div>
     <div style="font-size:11px;color:var(--ts);margin-bottom:10px;">En hígado graso y resistencia a insulina, la cintura importa más que el peso. Mide siempre en el mismo punto, en ayunas.</div>
     <div class="csem-grid">
-      <div class="csem-item"><div class="csem-label">Semana 0</div><input class="csem-input" id="mk-cin-0" type="number" step="0.1" placeholder="—"><div style="font-size:9px;color:var(--ts);">cm</div></div>
-      <div class="csem-item"><div class="csem-label">Semana 2</div><input class="csem-input" id="mk-cin-2" type="number" step="0.1" placeholder="—"><div style="font-size:9px;color:var(--ts);">cm</div></div>
-      <div class="csem-item"><div class="csem-label">Día 30</div><input class="csem-input" id="mk-cin-30" type="number" step="0.1" placeholder="—"><div style="font-size:9px;color:var(--ts);">cm</div></div>
+      <div class="csem-item"><div class="csem-label">Semana 0</div><input class="csem-input" id="mk-cin-0" type="number" step="0.1" placeholder="—" oninput="updateCinturaDelta()"><div style="font-size:9px;color:var(--ts);">cm</div></div>
+      <div class="csem-item"><div class="csem-label">Semana 2</div><input class="csem-input" id="mk-cin-2" type="number" step="0.1" placeholder="—" oninput="updateCinturaDelta()"><div style="font-size:9px;color:var(--ts);">cm</div></div>
+      <div class="csem-item"><div class="csem-label">Día 30</div><input class="csem-input" id="mk-cin-30" type="number" step="0.1" placeholder="—" oninput="updateCinturaDelta()"><div style="font-size:9px;color:var(--ts);">cm</div></div>
     </div>
-    <div id="cintura-delta" style="margin-top:10px;"></div>
+    <div id="cintura-delta"></div>
   </div>
-
   <div style="padding-bottom:12px;">
     <button class="btn btn-b" onclick="saveMarkers()">Guardar marcadores</button>
     <button class="btn btn-o" onclick="exportData()" style="margin-top:8px;">Exportar todos los datos</button>
@@ -402,13 +402,13 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
       <div><label style="font-size:11px;color:var(--steel);display:block;margin-bottom:4px;">Bloques proteína</label><input type="number" id="r-bloques" placeholder="4" min="1" max="8"></div>
       <div><label style="font-size:11px;color:var(--steel);display:block;margin-bottom:4px;">¿Mantiene 4–5h?</label><select id="r-mantiene"><option value="si">Sí</option><option value="mas">Más o menos</option><option value="no">No</option></select></div>
     </div>
-    <div style="margin-bottom:8px;">
-      <label style="font-size:11px;color:var(--steel);display:block;margin-bottom:4px;">Etiquetas de contexto</label>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;" id="tag-checkboxes">
-        <label style="display:flex;align-items:center;gap:4px;font-size:12px;cursor:pointer;"><input type="checkbox" value="ansiedad" style="width:auto;background:transparent;border:none;padding:0;"> Segura en ansiedad</label>
-        <label style="display:flex;align-items:center;gap:4px;font-size:12px;cursor:pointer;"><input type="checkbox" value="viaje" style="width:auto;background:transparent;border:none;padding:0;"> Segura en viaje</label>
-        <label style="display:flex;align-items:center;gap:4px;font-size:12px;cursor:pointer;"><input type="checkbox" value="rapida" style="width:auto;background:transparent;border:none;padding:0;"> Lista rápido</label>
-        <label style="display:flex;align-items:center;gap:4px;font-size:12px;cursor:pointer;"><input type="checkbox" value="recaida" style="width:auto;background:transparent;border:none;padding:0;"> Para recaída</label>
+    <div style="margin-bottom:10px;">
+      <label style="font-size:11px;color:var(--steel);display:block;margin-bottom:6px;">Etiquetas de contexto</label>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;" id="tag-checkboxes">
+        <label style="display:flex;align-items:center;gap:5px;font-size:12px;cursor:pointer;background:var(--white);padding:4px 8px;border-radius:6px;border:1px solid var(--border);"><input type="checkbox" value="ansiedad" style="width:14px;height:14px;accent-color:var(--blue);"> 😮‍💨 Ansiedad</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:12px;cursor:pointer;background:var(--white);padding:4px 8px;border-radius:6px;border:1px solid var(--border);"><input type="checkbox" value="viaje" style="width:14px;height:14px;accent-color:var(--blue);"> ✈️ Viaje</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:12px;cursor:pointer;background:var(--white);padding:4px 8px;border-radius:6px;border:1px solid var(--border);"><input type="checkbox" value="rapida" style="width:14px;height:14px;accent-color:var(--blue);"> ⚡ Rápida</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:12px;cursor:pointer;background:var(--white);padding:4px 8px;border-radius:6px;border:1px solid var(--border);"><input type="checkbox" value="recaida" style="width:14px;height:14px;accent-color:var(--blue);"> 🔄 Recaída</label>
       </div>
     </div>
     <button class="btn btn-b" onclick="addRecipe()">Agregar comida</button>
@@ -421,12 +421,12 @@ input::placeholder,textarea::placeholder{color:var(--ts);}
   </div>
 </div>
 
-<footer class="app-footer">@gnozin · mizonatraker.netlify.app</footer>
+<footer class="app-footer">@gnozin · mizonatraker.netlify.app · v2.2</footer>
 <div class="toast" id="toast"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <script>
-const KD='mz_days_v21',KM='mz_markers_v21',KR='mz_recipes_v21',KBL='mz_blocks_v21';
+const KD='mz_days_v22',KM='mz_markers_v22',KR='mz_recipes_v22',KBL='mz_blocks_v22';
 let D={},M={},R=[],BL={},selDay=1,phFilter=0,blocksActive=false,charts={};
 
 const PH={
@@ -449,16 +449,21 @@ const MEALS=[
   {id:'cena',label:'Cena',icon:'🌙',b:4}
 ];
 
-// Semaphore rules
+// ─── SEMAPHORE RULES (refined) ──────────────────────────
 const SEM_RULES={
   tghdl:(v)=>v<1?'g':v<=3?'y':'r',
   pcr:(v)=>v<1?'g':v<=3?'y':'r',
-  aaepa:(v)=>v>=1.5&&v<=3?'g':v<=5?'y':'r',
-  hba1c:(v)=>v<=5.1?'g':v<=5.4?'y':'r',
+  // Fixed: AA/EPA out-of-range below 1 = informational, not yellow
+  aaepa:(v)=>v<1?'i':v<=3?'g':v<=5?'y':'r',
+  // Fixed: HbA1c below 4.9 = informational (not simply green)
+  hba1c:(v)=>v<4.9?'i':v<=5.1?'g':v<=5.4?'y':'r',
   insulina:(v)=>v<5?'g':v<=10?'y':'r'
 };
 
-const SEM_LABEL={g:'En zona',y:'Atención',r:'Fuera de zona'};
+const SEM_LABEL={
+  g:'En zona',y:'Atención',r:'Fuera de zona',
+  i:'Valor inusual — verificar'
+};
 
 function ph(d){return d<=7?1:d<=21?2:3;}
 
@@ -492,20 +497,106 @@ function showView(v){
   if(v==='com')renderMeals();
   if(v==='rec')renderRecipes();
   if(v==='mks'){loadMarkerFields();updateAllSems();}
+  if(v==='cal'){buildAlerts();buildWeeklySummaries();}
 }
 
-// ─── RACHA CORREGIDA ─────────────────────────────────────
-// Calcula la racha real desde el último día guardado consecutivo
+// ─── RACHA REAL ─────────────────────────────────────────
 function calcStreak(){
   let last=0;
   for(let d=30;d>=1;d--){if(D[d]&&D[d].saved){last=d;break;}}
   if(!last)return 0;
-  let streak=0;
-  for(let d=last;d>=1;d--){
-    if(D[d]&&D[d].saved)streak++;
-    else break;
+  let s=0;
+  for(let d=last;d>=1;d--){if(D[d]&&D[d].saved)s++;else break;}
+  return s;
+}
+
+// ─── PATTERN ALERTS ─────────────────────────────────────
+function buildAlerts(){
+  const panel=document.getElementById('alerts-panel');
+  if(!panel)return;
+  const alerts=[];
+  const saved=[];
+  for(let d=1;d<=30;d++){if(D[d]&&D[d].saved)saved.push({d,r:D[d]});}
+  if(saved.length<3){panel.innerHTML='';return;}
+
+  // Check last 3 saved days
+  const last3=saved.slice(-3).map(x=>x.r);
+
+  // Alert: energy low + anxiety high
+  const avgE=last3.reduce((a,r)=>a+(r.vitals?.energia||5),0)/3;
+  const avgA=last3.reduce((a,r)=>a+(r.vitals?.ansiedad||5),0)/3;
+  if(avgE<4&&avgA>6){
+    alerts.push({type:'warn',icon:'⚡',title:'Energía baja + ansiedad elevada',text:'Últimos 3 días: energía promedio '+avgE.toFixed(1)+'/10, ansiedad '+avgA.toFixed(1)+'/10. Revisar desayuno, recortar carga glucémica y añadir caminata post comida.'});
   }
-  return streak;
+
+  // Alert: streak broken
+  const streak=calcStreak();
+  if(saved.length>=3&&streak===1){
+    alerts.push({type:'warn',icon:'🔁',title:'Racha interrumpida',text:'Hoy es el día 1 de una nueva racha. El sistema Zone no requiere perfección — requiere regresar en la siguiente comida, no el lunes.'});
+  }
+
+  // Alert: good streak
+  if(streak>=5){
+    alerts.push({type:'good',icon:'🟢',title:'Racha sólida: '+streak+' días',text:'Consistencia activa. Sears lo dice claramente: la adherencia de 7 días ya es suficiente para cambios metabólicos medibles.'});
+  }
+
+  // Alert: low protocol compliance last 3 days
+  const avgComp=last3.reduce((a,r)=>{
+    const p=ph(saved[saved.length-3+last3.indexOf(r)].d||1);
+    const cl=CL[p];const done=(r.checks||[]).filter(Boolean).length;
+    return a+(done/cl.length);
+  },0)/3;
+  if(avgComp<0.5){
+    alerts.push({type:'warn',icon:'📋',title:'Adherencia al protocolo por debajo del 50%',text:'Los últimos 3 días registrados muestran cumplimiento promedio de '+Math.round(avgComp*100)+'%. Identificar qué ítems se están saltando sistemáticamente.'});
+  }
+
+  // Info: approaching phase transition
+  const lastDay=saved[saved.length-1].d;
+  if(lastDay===6)alerts.push({type:'info',icon:'📍',title:'Transición mañana: Fase 2',text:'El día 8 arranca Reconfigurar. Activa los bloques Zone en la pestaña Comidas y ajusta por respuesta hambre/claridad.'});
+  if(lastDay===20)alerts.push({type:'info',icon:'📍',title:'Transición mañana: Fase 3',text:'El día 22 arranca Consolidar. Prepara la lista de 10 comidas repetibles y activa el protocolo de recaída.'});
+
+  panel.innerHTML=alerts.map(a=>`
+    <div class="alert ${a.type}">
+      <div class="alert-icon">${a.icon}</div>
+      <div class="alert-text"><strong>${a.title}</strong>${a.text}</div>
+    </div>
+  `).join('');
+}
+
+// ─── WEEKLY SUMMARIES ───────────────────────────────────
+function buildWeeklySummaries(){
+  const el=document.getElementById('weekly-summaries');
+  if(!el)return;
+  const weeks=[
+    {label:'Semana 1',days:[1,2,3,4,5,6,7]},
+    {label:'Semana 2',days:[8,9,10,11,12,13,14]},
+    {label:'Semana 3',days:[15,16,17,18,19,20,21]},
+    {label:'Semana 4',days:[22,23,24,25,26,27,28,29,30]}
+  ];
+  const html=weeks.map(w=>{
+    const saved=w.days.filter(d=>D[d]&&D[d].saved);
+    if(saved.length===0)return'';
+    const avgE=saved.reduce((a,d)=>a+(D[d].vitals?.energia||0),0)/saved.length;
+    const avgAnx=saved.reduce((a,d)=>a+(D[d].vitals?.ansiedad||0),0)/saved.length;
+    const pasos=saved.filter(d=>parseInt(D[d].pasos)>0);
+    const avgP=pasos.length?saved.reduce((a,d)=>a+(parseInt(D[d].pasos)||0),0)/saved.length:0;
+    let tc=0,mc=0;
+    saved.forEach(d=>{const p=ph(d);mc+=CL[p].length;tc+=(D[d].checks||[]).filter(Boolean).length;});
+    const comp=mc>0?Math.round((tc/mc)*100):0;
+    return`<div class="week-sum">
+      <div class="week-sum-header">
+        <div class="week-sum-title">${w.label}</div>
+        <div class="week-sum-range">${saved.length}/${w.days.length} días · D${w.days[0]}–D${w.days[w.days.length-1]}</div>
+      </div>
+      <div class="week-metrics">
+        <div class="wm"><div class="wm-val">${avgE.toFixed(1)}</div><div class="wm-label">Energía</div></div>
+        <div class="wm"><div class="wm-val">${avgAnx.toFixed(1)}</div><div class="wm-label">Ansiedad</div></div>
+        <div class="wm"><div class="wm-val">${avgP>0?Math.round(avgP/1000*10)/10+'k':'—'}</div><div class="wm-label">Pasos</div></div>
+        <div class="wm"><div class="wm-val">${comp}%</div><div class="wm-label">Protocolo</div></div>
+      </div>
+    </div>`;
+  }).join('');
+  el.innerHTML=html;
 }
 
 function buildDayPills(){
@@ -522,23 +613,16 @@ function buildDayPills(){
   }
 }
 
-// ─── CALENDAR ────────────────────────────────────────────
-// BUG FIX: usa columnas reales sin huecos cuando filtra por fase
+// ─── GRID (sin huecos) ──────────────────────────────────
 function buildGrid(filter){
   const grid=document.getElementById('day-grid');
+  const wlabs=document.getElementById('wlabs-row');
   grid.innerHTML='';
-
-  // Recoger días a mostrar
   const days=[];
-  for(let d=1;d<=30;d++){
-    const p=ph(d);
-    if(filter===0||p===filter)days.push(d);
-  }
-
-  // Ajustar columnas según cantidad
-  const cols=filter===0?7:days.length<=7?days.length:7;
+  for(let d=1;d<=30;d++){const p=ph(d);if(filter===0||p===filter)days.push(d);}
+  const cols=filter===0?7:Math.min(days.length,7);
   grid.style.gridTemplateColumns=`repeat(${cols},minmax(0,1fr))`;
-
+  if(wlabs)wlabs.style.display=filter===0?'grid':'none';
   days.forEach(d=>{
     const p=ph(d),rec=D[d]||{},checks=rec.checks||[],cl=CL[p];
     const filled=checks.filter(Boolean).length;
@@ -567,23 +651,17 @@ function updateStats(){
   document.getElementById('s-done').textContent=done;
   document.getElementById('h-done').textContent=done;
   document.getElementById('top-prog').style.width=Math.round((done/30)*100)+'%';
-
   const streak=calcStreak();
   document.getElementById('s-streak').textContent=streak;
   document.getElementById('h-streak').textContent=streak;
-
   let tc=0,mc=0;
-  for(let d=1;d<=30;d++){
-    const r=D[d];if(!r||!r.saved)continue;
-    const p=ph(d);mc+=CL[p].length;tc+=(r.checks||[]).filter(Boolean).length;
-  }
+  for(let d=1;d<=30;d++){const r=D[d];if(!r||!r.saved)continue;const p=ph(d);mc+=CL[p].length;tc+=(r.checks||[]).filter(Boolean).length;}
   document.getElementById('s-checks').textContent=mc>0?Math.round((tc/mc)*100)+'%':'0%';
-
   const pa=Object.values(D).filter(r=>r&&r.saved&&parseInt(r.pasos)>0).map(r=>parseInt(r.pasos));
   document.getElementById('s-pasos').textContent=pa.length?Math.round(pa.reduce((a,b)=>a+b,0)/pa.length).toLocaleString('es-MX'):'0';
 }
 
-// ─── DAY DETAIL ──────────────────────────────────────────
+// ─── DAY ────────────────────────────────────────────────
 function selectDay(d){
   selDay=d;
   const p=ph(d),ph_=PH[p];
@@ -591,35 +669,27 @@ function selectDay(d){
   document.getElementById('dd-title').textContent='Día '+d;
   document.getElementById('dd-phase').textContent=ph_.name;
   document.getElementById('comida-day-label').textContent=d;
-
-  const pb=document.getElementById('phase-badge');
-  pb.textContent=ph_.short;pb.className='pb '+ph_.cls;
-
+  const pb=document.getElementById('phase-badge');pb.textContent=ph_.short;pb.className='pb '+ph_.cls;
   document.querySelectorAll('#day-pills .pill').forEach(el=>el.classList.remove('active'));
   const dpEl=document.getElementById('dp'+d);
   if(dpEl){dpEl.classList.add('active');dpEl.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});}
-
   const rec=D[d]||{},checks=rec.checks||[],cl=CL[p];
-
   document.getElementById('checklist').innerHTML=cl.map((item,i)=>
     `<div class="ci" onclick="toggleCheck(${d},${i})"><div class="cb${checks[i]?' on':''}"></div><span class="cil">${item}</span></div>`
   ).join('');
   document.getElementById('check-count').textContent=checks.filter(Boolean).length+'/'+cl.length;
-
   const v=rec.vitals||{};
   ['energia','mental','ansiedad','sueno'].forEach(k=>{
     const sl=document.getElementById('sl-'+k),lb=document.getElementById('lbl-'+k);
     const val=v[k]||5;sl.value=val;lb.textContent=val;
     sl.oninput=()=>lb.textContent=sl.value;
   });
-
   document.getElementById('m-pasos').value=rec.pasos||'';
   document.getElementById('m-peso-dia').value=rec.peso||'';
   document.getElementById('day-note').value=rec.note||'';
   document.getElementById('r-detonante').value=rec.detonante||'';
   document.getElementById('r-impulso').value=rec.impulso||'';
   document.getElementById('r-sustitucion').value=rec.sustitucion||'';
-
   buildGrid(phFilter);
 }
 
@@ -631,16 +701,9 @@ function toggleCheck(d,i){
 }
 
 function saveDay(){
-  const btn=document.getElementById('save-btn');
-  btn.disabled=true;btn.textContent='Guardando…';
-  const d=selDay;
-  if(!D[d])D[d]={};
-  D[d].vitals={
-    energia:+document.getElementById('sl-energia').value,
-    mental:+document.getElementById('sl-mental').value,
-    ansiedad:+document.getElementById('sl-ansiedad').value,
-    sueno:+document.getElementById('sl-sueno').value
-  };
+  const btn=document.getElementById('save-btn');btn.disabled=true;btn.textContent='Guardando…';
+  const d=selDay;if(!D[d])D[d]={};
+  D[d].vitals={energia:+document.getElementById('sl-energia').value,mental:+document.getElementById('sl-mental').value,ansiedad:+document.getElementById('sl-ansiedad').value,sueno:+document.getElementById('sl-sueno').value};
   D[d].pasos=document.getElementById('m-pasos').value;
   D[d].peso=document.getElementById('m-peso-dia').value;
   D[d].note=document.getElementById('day-note').value;
@@ -652,7 +715,7 @@ function saveDay(){
   btn.disabled=false;btn.textContent='Guardar día';
 }
 
-// ─── MEALS ───────────────────────────────────────────────
+// ─── MEALS ──────────────────────────────────────────────
 function toggleBlocks(){
   blocksActive=!blocksActive;
   document.getElementById('blocks-panel').style.display=blocksActive?'block':'none';
@@ -660,69 +723,54 @@ function toggleBlocks(){
   renderMeals();
 }
 
+function updateBlocksBar(){
+  const d=selDay,meals=BL[d]||{};
+  let total=0;
+  MEALS.forEach(m=>total+=parseInt((meals[m.id]||{}).protB)||0);
+  const meta=parseInt(document.getElementById('meta-bloques').value)||13;
+  const pct=Math.min(Math.round((total/meta)*100),100);
+  document.getElementById('bloques-total').textContent=total;
+  document.getElementById('bloques-meta').textContent=meta;
+  document.getElementById('bloques-pct').textContent=pct+'%';
+  document.getElementById('bloques-bar').style.width=pct+'%';
+}
+
 function renderMeals(){
   const d=selDay,meals=BL[d]||{},container=document.getElementById('meals-container');
-  container.innerHTML='';let total=0;
+  container.innerHTML='';
   MEALS.forEach(m=>{
     const md=meals[m.id]||{};
-    // BUG FIX: proteína ahora se llama protB
-    if(md.protB)total+=parseInt(md.protB)||0;
     const hv=md.hambre||5;
-    const sec=document.createElement('div');
-    sec.className='ms';
+    const sec=document.createElement('div');sec.className='ms';
     sec.innerHTML=`
-      <div class="ml"><div class="mi">${m.icon}</div>${m.label}${blocksActive?`<span style="font-size:9px;color:var(--steel);margin-left:auto;">meta ${m.b}B</span>`:''}</div>
+      <div class="mlabel"><div class="mi">${m.icon}</div>${m.label}${blocksActive?`<span style="font-size:9px;color:var(--steel);margin-left:auto;">meta ${m.b}B</span>`:''}</div>
       ${blocksActive?`<div class="br">
         <div class="bw"><label>Prot B</label><input type="number" min="0" max="8" placeholder="${m.b}" value="${md.protB||''}" onchange="saveMeal(${d},'${m.id}','protB',this.value)"></div>
         <div class="bw"><label>Carb B</label><input type="number" min="0" max="8" placeholder="${m.b}" value="${md.carbB||''}" onchange="saveMeal(${d},'${m.id}','carbB',this.value)"></div>
         <div class="bw"><label>Grasa B</label><input type="number" min="0" max="8" placeholder="${m.b}" value="${md.grasaB||''}" onchange="saveMeal(${d},'${m.id}','grasaB',this.value)"></div>
       </div>`:''}
       <input type="text" placeholder="${m.label}: ¿qué comiste?" value="${md.desc||''}" onchange="saveMeal(${d},'${m.id}','desc',this.value)" style="margin-bottom:5px;">
-      <div class="hr"><label>Hambre previa</label><input type="range" min="1" max="10" step="1" value="${hv}" oninput="this.nextElementSibling.textContent=this.value;saveMeal(${d},'${m.id}','hambre',this.value)"><span class="hv2">${hv}</span></div>
+      <div class="hr2"><label>Hambre previa</label><input type="range" min="1" max="10" step="1" value="${hv}" oninput="this.nextElementSibling.textContent=this.value;saveMeal(${d},'${m.id}','hambre',this.value)"><span class="hv2">${hv}</span></div>
       <div class="divider" style="margin:8px 0;"></div>
     `;
     container.appendChild(sec);
   });
-  const tv=document.getElementById('bloques-total');if(tv)tv.textContent=total;
+  updateBlocksBar();
 }
 
 function saveMeal(d,mid,field,val){
-  if(!BL[d])BL[d]={};
-  if(!BL[d][mid])BL[d][mid]={};
-  BL[d][mid][field]=val;
-  save();
-  // Recalcular total proteína
-  let t=0;
-  MEALS.forEach(m=>t+=parseInt((BL[d]&&BL[d][m.id]&&BL[d][m.id].protB)||0));
-  const tv=document.getElementById('bloques-total');if(tv)tv.textContent=t;
+  if(!BL[d])BL[d]={};if(!BL[d][mid])BL[d][mid]={};
+  BL[d][mid][field]=val;save();updateBlocksBar();
 }
 
-// ─── CHARTS ──────────────────────────────────────────────
+// ─── CHARTS ─────────────────────────────────────────────
 function drawCharts(){
   const labels=Array.from({length:30},(_,i)=>'D'+(i+1));
-  function getArr(key,sub){
-    return Array.from({length:30},(_,i)=>{
-      const r=D[i+1];if(!r||!r.saved)return null;
-      if(sub)return r[key]?parseFloat(r[key][sub])||null:null;
-      return parseFloat(r[key])||null;
-    });
-  }
+  function getArr(key,sub){return Array.from({length:30},(_,i)=>{const r=D[i+1];if(!r||!r.saved)return null;if(sub)return r[key]?parseFloat(r[key][sub])||null:null;return parseFloat(r[key])||null;});}
   function mkChart(id,datasets,yOpts={}){
     const ctx=document.getElementById(id);if(!ctx)return;
     if(charts[id])charts[id].destroy();
-    charts[id]=new Chart(ctx,{
-      type:'line',
-      data:{labels,datasets},
-      options:{
-        responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{display:false}},
-        scales:{
-          x:{grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{size:9},color:'#8a9ab0'}},
-          y:{grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{size:9},color:'#8a9ab0'},...yOpts}
-        },
-        elements:{point:{radius:3,hoverRadius:5},line:{tension:0.35}}
-      }
-    });
+    charts[id]=new Chart(ctx,{type:'line',data:{labels,datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{size:9},color:'#8a9ab0'}},y:{grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{size:9},color:'#8a9ab0'},...yOpts}},elements:{point:{radius:3,hoverRadius:5},line:{tension:.35}}}});
   }
   mkChart('chart-vitals',[
     {label:'Energía',data:getArr('vitals','energia'),borderColor:'#0B6ABF',backgroundColor:'rgba(11,106,191,.08)',fill:true,spanGaps:true},
@@ -730,19 +778,14 @@ function drawCharts(){
     {label:'Claridad',data:getArr('vitals','mental'),borderColor:'#1D9E75',fill:false,spanGaps:true}
   ],{suggestedMin:1,suggestedMax:10});
   mkChart('chart-pasos',[{label:'Pasos',data:getArr('pasos'),borderColor:'#0B6ABF',backgroundColor:'rgba(11,106,191,.15)',fill:true,spanGaps:true}]);
-  mkChart('chart-peso',[{label:'Peso kg',data:getArr('peso'),borderColor:'#0A3D6B',backgroundColor:'rgba(10,61,107,.1)',fill:true,spanGaps:true}]);
-  const cd=Array.from({length:30},(_,i)=>{
-    const r=D[i+1];if(!r||!r.saved)return null;
-    const p=ph(i+1);
-    return Math.round(((r.checks||[]).filter(Boolean).length/CL[p].length)*100);
-  });
+  mkChart('chart-peso',[{label:'Peso',data:getArr('peso'),borderColor:'#0A3D6B',backgroundColor:'rgba(10,61,107,.1)',fill:true,spanGaps:true}]);
+  const cd=Array.from({length:30},(_,i)=>{const r=D[i+1];if(!r||!r.saved)return null;const p=ph(i+1);return Math.round(((r.checks||[]).filter(Boolean).length/CL[p].length)*100);});
   mkChart('chart-checks',[{label:'%',data:cd,borderColor:'#1D9E75',backgroundColor:'rgba(29,158,117,.15)',fill:true,spanGaps:true}],{suggestedMin:0,suggestedMax:100});
 }
 
-// ─── SEMAPHORES ──────────────────────────────────────────
+// ─── SEMAPHORES ─────────────────────────────────────────
 function updateSem(key,val){
-  const el=document.getElementById('sem-'+key);
-  if(!el)return;
+  const el=document.getElementById('sem-'+key);if(!el)return;
   const v=parseFloat(val);
   if(isNaN(v)||val===''){el.innerHTML='';return;}
   const rule=SEM_RULES[key];if(!rule)return;
@@ -751,58 +794,53 @@ function updateSem(key,val){
 }
 
 function updateAllSems(){
-  Object.keys(SEM_RULES).forEach(k=>{
-    const el=document.getElementById('mk-'+k);
-    if(el&&el.value)updateSem(k,el.value);
-  });
+  Object.keys(SEM_RULES).forEach(k=>{const el=document.getElementById('mk-'+k);if(el&&el.value)updateSem(k,el.value);});
 }
 
-// ─── MARKERS ─────────────────────────────────────────────
+// ─── DELTA FUNCTIONS (live on input) ────────────────────
+function updateCinturaDelta(){
+  const el=document.getElementById('cintura-delta');if(!el)return;
+  const c0=parseFloat(document.getElementById('mk-cin-0').value);
+  const c30=parseFloat(document.getElementById('mk-cin-30').value);
+  if(isNaN(c0)||isNaN(c30)){el.innerHTML='';return;}
+  const delta=c30-c0;
+  const cls=delta<0?'g':delta===0?'y':'r';
+  const sign=delta<0?'':'+';
+  el.innerHTML=`<div class="delta-box ${cls}"><span style="font-size:16px;">${delta<0?'↓':delta===0?'→':'↑'}</span><span>Cintura: ${sign}${delta.toFixed(1)} cm en 30 días</span></div>`;
+}
+
+function updatePesoDelta(){
+  const el=document.getElementById('peso-delta');if(!el)return;
+  const p0=parseFloat(document.getElementById('mk-peso-ini').value);
+  const p30=parseFloat(document.getElementById('mk-peso-fin').value);
+  if(isNaN(p0)||isNaN(p30)){el.innerHTML='';return;}
+  const delta=p30-p0;
+  const cls=delta<0?'g':delta===0?'y':'r';
+  const sign=delta<0?'':'+';
+  el.innerHTML=`<div class="delta-box ${cls}"><span style="font-size:16px;">${delta<0?'↓':delta===0?'→':'↑'}</span><span>Peso: ${sign}${delta.toFixed(1)} kg en 30 días</span></div>`;
+}
+
+// ─── MARKERS ────────────────────────────────────────────
 function loadMarkerFields(){
   const fields=['tghdl','pcr','aaepa','hba1c','insulina','glucosa','peso-ini','peso-15','peso-fin','cin-0','cin-2','cin-30'];
-  fields.forEach(f=>{
-    const el=document.getElementById('mk-'+f);
-    if(el&&M[f]!==undefined)el.value=M[f];
-  });
-  updateCinturaDelta();
+  fields.forEach(f=>{const el=document.getElementById('mk-'+f);if(el&&M[f]!==undefined)el.value=M[f];});
+  updateCinturaDelta();updatePesoDelta();
 }
 
 function saveMarkers(){
   const fields=['tghdl','pcr','aaepa','hba1c','insulina','glucosa','peso-ini','peso-15','peso-fin','cin-0','cin-2','cin-30'];
-  fields.forEach(f=>{
-    const el=document.getElementById('mk-'+f);
-    if(el)M[f]=el.value;
-  });
-  save();updateAllSems();updateCinturaDelta();toast('Marcadores guardados');
+  fields.forEach(f=>{const el=document.getElementById('mk-'+f);if(el)M[f]=el.value;});
+  save();updateAllSems();updateCinturaDelta();updatePesoDelta();toast('Marcadores guardados');
 }
 
-function updateCinturaDelta(){
-  const el=document.getElementById('cintura-delta');if(!el)return;
-  const c0=parseFloat(M['cin-0']),c30=parseFloat(M['cin-30']);
-  if(isNaN(c0)||isNaN(c30)||!M['cin-0']||!M['cin-30']){el.innerHTML='';return;}
-  const delta=c30-c0;
-  const cls=delta<0?'g':delta===0?'y':'r';
-  const label=delta<0?`Reducción de ${Math.abs(delta).toFixed(1)} cm`:delta===0?'Sin cambio':`Aumento de ${delta.toFixed(1)} cm`;
-  el.innerHTML=`<div class="sem ${cls}" style="font-size:12px;padding:6px 10px;"><div class="sem-dot"></div>${label}</div>`;
-}
-
-// ─── RECIPES ─────────────────────────────────────────────
+// ─── RECIPES ────────────────────────────────────────────
 function addRecipe(){
   const nombre=document.getElementById('r-nombre').value.trim();
   if(!nombre){toast('Agrega un nombre');return;}
   const tags=Array.from(document.querySelectorAll('#tag-checkboxes input:checked')).map(i=>i.value);
-  R.push({
-    id:Date.now(),nombre,
-    tipo:document.getElementById('r-tipo').value,
-    desc:document.getElementById('r-desc').value,
-    bloques:document.getElementById('r-bloques').value,
-    mantiene:document.getElementById('r-mantiene').value,
-    tags
-  });
+  R.push({id:Date.now(),nombre,tipo:document.getElementById('r-tipo').value,desc:document.getElementById('r-desc').value,bloques:document.getElementById('r-bloques').value,mantiene:document.getElementById('r-mantiene').value,tags});
   save();
-  document.getElementById('r-nombre').value='';
-  document.getElementById('r-desc').value='';
-  document.getElementById('r-bloques').value='';
+  document.getElementById('r-nombre').value='';document.getElementById('r-desc').value='';document.getElementById('r-bloques').value='';
   document.querySelectorAll('#tag-checkboxes input').forEach(i=>i.checked=false);
   renderRecipes();toast('Comida guardada');
 }
@@ -825,21 +863,20 @@ function renderRecipes(){
       </div>
       <div class="rn">${r.nombre}</div>
       ${r.desc?`<div class="rm">${r.desc}</div>`:''}
-      ${r.tags&&r.tags.length?`<div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:5px;">${r.tags.map(t=>`<span style="background:var(--cloud);color:var(--tm);font-size:10px;padding:2px 6px;border-radius:6px;">${tl[t]||t}</span>`).join('')}</div>`:''} 
+      ${r.tags&&r.tags.length?`<div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:5px;">${r.tags.map(t=>`<span style="background:var(--cloud);color:var(--tm);font-size:10px;padding:2px 7px;border-radius:6px;">${tl[t]||t}</span>`).join('')}</div>`:''}
     </div>
   `).join('');
 }
 
-// ─── EXPORT ──────────────────────────────────────────────
+// ─── EXPORT ─────────────────────────────────────────────
 function exportData(){
-  let txt='MI ZONA TRACKER — EXPORTACIÓN\n'+new Date().toLocaleDateString('es-MX',{weekday:'long',year:'numeric',month:'long',day:'numeric'})+'\n\n';
+  let txt='MI ZONA TRACKER v2.2 — EXPORTACIÓN\n'+new Date().toLocaleDateString('es-MX',{weekday:'long',year:'numeric',month:'long',day:'numeric'})+'\n\n';
   txt+='=== MARCADORES ===\n';
   Object.entries(M).forEach(([k,v])=>{if(v)txt+=k+': '+v+'\n';});
   txt+='\n=== REGISTRO DIARIO ===\n';
   for(let d=1;d<=30;d++){
     const r=D[d];if(!r||!r.saved)continue;
-    const p=ph(d);
-    txt+='\nDía '+d+' ('+PH[p].name+')\n';
+    const p=ph(d);txt+='\nDía '+d+' ('+PH[p].name+')\n';
     if(r.vitals)txt+='  E:'+r.vitals.energia+' C:'+r.vitals.mental+' A:'+r.vitals.ansiedad+' S:'+r.vitals.sueno+'\n';
     if(r.pasos)txt+='  Pasos: '+r.pasos+'\n';
     if(r.peso)txt+='  Peso: '+r.peso+' kg\n';
@@ -853,12 +890,12 @@ function exportData(){
   txt+='\n=== COMIDAS REPETIBLES ===\n';
   R.forEach(r=>txt+=r.tipo+' — '+r.nombre+(r.bloques?' ('+r.bloques+'B)':'')+(r.tags&&r.tags.length?' ['+r.tags.join(',')+']':'')+'\n');
   const blob=new Blob([txt],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');
-  a.href=url;a.download='mizona-'+new Date().toISOString().split('T')[0]+'.txt';
+  a.href=url;a.download='mizona-v22-'+new Date().toISOString().split('T')[0]+'.txt';
   a.click();URL.revokeObjectURL(url);toast('Datos exportados');
 }
 
-// ─── INIT ─────────────────────────────────────────────────
-load();buildDayPills();selectDay(1);buildGrid(0);renderRecipes();
+// ─── INIT ────────────────────────────────────────────────
+load();buildDayPills();selectDay(1);buildGrid(0);renderRecipes();buildAlerts();buildWeeklySummaries();
 </script>
 </body>
 </html>
