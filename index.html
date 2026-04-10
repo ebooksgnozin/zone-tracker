@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zone Tracker 30 días</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-dark: #0A5C45;
+  --green-mid: #0F6E56;
+  --green-light: #1D9E75;
+  --green-pale: #E1F5EE;
+  --green-faint: #F0FAF6;
+  --amber: #EF9F27;
+  --amber-pale: #FAEEDA;
+  --red-soft: #E24B4A;
+  --text-primary: #1a1a18;
+  --text-secondary: #5a5a55;
+  --text-tertiary: #999990;
+  --bg: #F7F6F2;
+  --bg-card: #ffffff;
+  --bg-surface: #F0EFE9;
+  --border: rgba(0,0,0,0.08);
+  --border-strong: rgba(0,0,0,0.15);
+  --radius: 10px;
+  --radius-lg: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+header {
+  background: var(--green-dark);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-left h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.header-left p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  margin-top: 2px;
+}
+
+.header-stats {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.hstat {
+  text-align: right;
+}
+
+.hstat-val {
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1;
+}
+
+.hstat-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  margin-top: 2px;
+}
+
+.progress-strip {
+  height: 3px;
+  background: rgba(255,255,255,0.15);
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--green-light);
+  transition: width 0.4s ease;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* Phase tabs */
+.phase-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.ptab {
+  padding: 5px 13px;
+  border-radius: 20px;
+  border: 1px solid var(--border-strong);
+  font-size: 12px;
+  cursor: pointer;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  transition: all 0.15s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.ptab.active {
+  background: var(--green-dark);
+  color: var(--green-pale);
+  border-color: var(--green-dark);
+}
+
+.ptab:hover:not(.active) {
+  background: var(--bg-surface);
+}
+
+/* Day grid */
+.week-labels {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0,1fr));
+  gap: 5px;
+  margin-bottom: 4px;
+}
+
+.wlabel {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.day-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0,1fr));
+  gap: 5px;
+}
+
+.day-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-height: 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.day-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--border);
+  transition: background 0.2s;
+}
+
+.day-card.ph1::before { background: #9FE1CB; }
+.day-card.ph2::before { background: var(--amber); }
+.day-card.ph3::before { background: var(--green-light); }
+
+.day-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.day-card.active-day {
+  border: 1.5px solid var(--green-mid);
+  box-shadow: 0 0 0 3px rgba(15,110,86,0.12);
+}
+
+.day-card.saved {
+  background: var(--green-faint);
+}
+
+.day-num {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  margin-bottom: 4px;
+}
+
+.day-score {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.day-score.empty {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-weight: 300;
+}
+
+.day-dots {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+
+.dot.on { background: var(--green-light); }
+
+/* Sidebar panels */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.1rem;
+}
+
+.panel-head {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 10px;
+}
+
+.sel-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.sel-phase {
+  font-size: 12px;
+  color: var(--green-mid);
+  margin-bottom: 14px;
+}
+
+/* Checklist */
+.checklist { display: flex; flex-direction: column; gap: 4px; }
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.check-item:hover { background: var(--bg-surface); }
+
+.check-box {
+  width: 16px; height: 16px;
+  min-width: 16px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  margin-top: 1px;
+}
+
+.check-box.checked {
+  background: var(--green-light);
+  border-color: var(--green-light);
+}
+
+.check-box.checked::after {
+  content: '';
+  display: block;
+  width: 5px; height: 8px;
+  border: 1.5px solid white;
+  border-top: none; border-left: none;
+  transform: rotate(45deg) translate(-1px,-1px);
+}
+
+.check-label {
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+/* Sliders */
+.slider-section { margin-top: 14px; }
+
+.slider-row { margin-bottom: 8px; }
+
+.slider-row label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 3px;
+}
+
+.slider-row label span {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+input[type=range] {
+  width: 100%;
+  height: 4px;
+  -webkit-appearance: none;
+  background: var(--bg-surface);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--green-mid);
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Metrics */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.metric-item {
+  background: var(--bg-surface);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.metric-label {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+}
+
+.metric-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+}
+
+.metric-unit {
+  font-size: 10px;
+  color: var(--text-tertiary);
+}
+
+/* Note area */
+textarea {
+  width: 100%;
+  min-height: 64px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  resize: none;
+  outline: none;
+  line-height: 1.5;
+  transition: border-color 0.15s;
+}
+
+textarea:focus { border-color: var(--green-mid); }
+textarea::placeholder { color: var(--text-tertiary); }
+
+/* Buttons */
+.btn-primary {
+  width: 100%;
+  padding: 9px;
+  background: var(--green-dark);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.15s, transform 0.1s;
+  letter-spacing: 0.02em;
+}
+
+.btn-primary:hover { background: var(--green-mid); }
+.btn-primary:active { transform: scale(0.99); }
+.btn-primary:disabled { opacity: 0.5; cursor: default; }
+
+.btn-secondary {
+  width: 100%;
+  padding: 7px;
+  background: transparent;
+  color: var(--green-mid);
+  border: 1px solid var(--green-mid);
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 8px;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.15s;
+}
+
+.btn-secondary:hover { background: var(--green-faint); }
+
+/* Markers */
+.marker-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+
+.marker-row:last-of-type { border-bottom: none; }
+
+.marker-name { color: var(--text-secondary); }
+
+.marker-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.marker-goal {
+  font-size: 10px;
+  color: var(--text-tertiary);
+}
+
+.marker-input {
+  width: 76px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 3px 7px;
+  font-size: 12px;
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  text-align: right;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.marker-input:focus { border-color: var(--green-mid); }
+
+/* Progress */
+.prog-bar {
+  height: 5px;
+  background: var(--bg-surface);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.prog-fill {
+  height: 100%;
+  background: var(--green-light);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+/* Phase badge */
+.phase-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 500;
+  margin-left: 6px;
+}
+
+.ph1-badge { background: #E1F5EE; color: #0A5C45; }
+.ph2-badge { background: var(--amber-pale); color: #854F0B; }
+.ph3-badge { background: var(--green-faint); color: var(--green-dark); }
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--green-dark);
+  color: #fff;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: 'DM Sans', sans-serif;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.25s;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 12px 0;
+}
+
+@media (max-width: 720px) {
+  .layout { grid-template-columns: 1fr; padding: 1rem; }
+  .header-stats { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <h1>Zone Tracker — 30 días</h1>
+    <p>Dr. Barry Sears · Seguimiento personal</p>
+  </div>
+  <div class="header-stats">
+    <div class="hstat">
+      <div class="hstat-val" id="h-done">0</div>
+      <div class="hstat-label">días registrados</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-val" id="h-streak">0</div>
+      <div class="hstat-label">racha actual</div>
+    </div>
+  </div>
+</header>
+<div class="progress-strip">
+  <div class="progress-fill" id="top-prog" style="width:0%"></div>
+</div>
+
+<div class="layout">
+  <div>
+    <div class="phase-tabs">
+      <div class="ptab active" onclick="filterPhase(0)">Todos los días</div>
+      <div class="ptab" onclick="filterPhase(1)">Fase 1 · Desinflamar <span class="phase-badge ph1-badge">1–7</span></div>
+      <div class="ptab" onclick="filterPhase(2)">Fase 2 · Reconfigurar <span class="phase-badge ph2-badge">8–21</span></div>
+      <div class="ptab" onclick="filterPhase(3)">Fase 3 · Consolidar <span class="phase-badge ph3-badge">22–30</span></div>
+    </div>
+    <div class="week-labels">
+      <div class="wlabel">LUN</div><div class="wlabel">MAR</div><div class="wlabel">MIÉ</div>
+      <div class="wlabel">JUE</div><div class="wlabel">VIE</div><div class="wlabel">SÁB</div><div class="wlabel">DOM</div>
+    </div>
+    <div class="day-grid" id="day-grid"></div>
+  </div>
+
+  <div class="sidebar">
+    <div class="panel">
+      <div class="sel-title" id="sel-title">Día 1</div>
+      <div class="sel-phase" id="sel-phase">Fase 1 · Desinflamar</div>
+
+      <div class="panel-head">Protocolo del día</div>
+      <div class="checklist" id="checklist"></div>
+
+      <div class="divider"></div>
+
+      <div class="panel-head">Señales vitales</div>
+      <div class="slider-row"><label>Energía <span id="lbl-energia">5</span>/10</label><input type="range" min="1" max="10" value="5" step="1" id="sl-energia" oninput="document.getElementById('lbl-energia').textContent=this.value"></div>
+      <div class="slider-row"><label>Claridad mental <span id="lbl-mental">5</span>/10</label><input type="range" min="1" max="10" value="5" step="1" id="sl-mental" oninput="document.getElementById('lbl-mental').textContent=this.value"></div>
+      <div class="slider-row"><label>Ansiedad <span id="lbl-ansiedad">5</span>/10</label><input type="range" min="1" max="10" value="5" step="1" id="sl-ansiedad" oninput="document.getElementById('lbl-ansiedad').textContent=this.value"></div>
+      <div class="slider-row"><label>Sueño <span id="lbl-sueno">5</span>/10</label><input type="range" min="1" max="10" value="5" step="1" id="sl-sueno" oninput="document.getElementById('lbl-sueno').textContent=this.value"></div>
+
+      <div class="metrics-grid">
+        <div class="metric-item">
+          <div class="metric-label">Hambre antes de comer</div>
+          <input class="metric-input" id="m-hambre" type="number" min="1" max="10" placeholder="—">
+          <div class="metric-unit">/10</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-label">Pasos hoy</div>
+          <input class="metric-input" id="m-pasos" type="number" placeholder="—">
+          <div class="metric-unit">pasos</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="panel-head">Nota del día</div>
+      <textarea id="day-note" placeholder="¿Qué sentí antes de comer de más? ¿Qué me protegía ese impulso? ¿Qué necesitaba realmente?"></textarea>
+
+      <button class="btn-primary" id="save-btn" onclick="saveDay()">Guardar día</button>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">Marcadores de laboratorio</div>
+      <div class="marker-row"><span class="marker-name">TG / HDL</span><div class="marker-right"><span class="marker-goal">meta &lt;1</span><input class="marker-input" id="mk-tghdl" placeholder="1.54"></div></div>
+      <div class="marker-row"><span class="marker-name">HbA1c</span><div class="marker-right"><span class="marker-goal">4.9–5.1%</span><input class="marker-input" id="mk-hba1c" placeholder="—"></div></div>
+      <div class="marker-row"><span class="marker-name">Insulina ayunas</span><div class="marker-right"><span class="marker-goal">↓</span><input class="marker-input" id="mk-insulina" placeholder="—"></div></div>
+      <div class="marker-row"><span class="marker-name">PCR</span><div class="marker-right"><span class="marker-goal">↓</span><input class="marker-input" id="mk-pcr" placeholder="alta"></div></div>
+      <div class="marker-row"><span class="marker-name">AA / EPA</span><div class="marker-right"><span class="marker-goal">1.5–3</span><input class="marker-input" id="mk-aaepa" placeholder="—"></div></div>
+      <div class="divider"></div>
+      <div class="marker-row"><span class="marker-name">Peso</span><div class="marker-right"><input class="marker-input" id="mk-peso" placeholder="— kg"></div></div>
+      <div class="marker-row"><span class="marker-name">Perímetro abdominal</span><div class="marker-right"><input class="marker-input" id="mk-cintura" placeholder="— cm"></div></div>
+      <button class="btn-primary" onclick="saveMarkers()">Guardar marcadores</button>
+      <button class="btn-secondary" onclick="exportData()">Exportar datos como texto</button>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">Progreso general</div>
+      <div style="font-size:13px;color:var(--text-secondary);margin-bottom:4px;">Días completados</div>
+      <div style="font-size:24px;font-weight:500;" id="days-done">0 / 30</div>
+      <div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+      <div style="font-size:12px;color:var(--text-tertiary);margin-top:6px;" id="phase-stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const KEY_DAYS = 'zone30_days_v1';
+const KEY_MARKERS = 'zone30_markers_v1';
+
+let appData = {};
+let markersData = {};
+let selectedDay = 1;
+let currentFilter = 0;
+
+const phaseMap = {
+  1: { name: 'Fase 1 · Desinflamar', cls: 'ph1' },
+  2: { name: 'Fase 2 · Reconfigurar', cls: 'ph2' },
+  3: { name: 'Fase 3 · Consolidar', cls: 'ph3' }
+};
+
+const checklists = {
+  1: [
+    'Comer dentro de 1h al despertar',
+    '3 comidas + 2 snacks en el día',
+    'Método mano-ojo en todas las comidas',
+    'Sin pan, pasta, arroz, papa, jugos ni refrescos',
+    'Caminar 10–15 min después de comer (x2)',
+    'Hora fija de acostarte',
+    'Diario nocturno: 3 preguntas de identidad'
+  ],
+  2: [
+    'Pasar de mano-ojo a bloques básicos Zone',
+    'Ajuste por respuesta hambre/claridad mental',
+    '30–40 min zona 2 conversacional',
+    '2 días con fuerza básica 10–15 min',
+    'Pregunta de identidad del día',
+    'Sustituto explícito ante impulso (regla 10 min)'
+  ],
+  3: [
+    'Repetir 10 comidas Zone que sí funcionan',
+    'Entorno preparado: proteína y verdura listas',
+    'Caminatas posprandiales sostenidas',
+    '7,000–9,000 pasos (o sostener tiempo)',
+    'Redactar narrativa nueva del cuerpo',
+    'Activar protocolo personal de recaída si aplica'
+  ]
+};
+
+function getPhase(d) { return d <= 7 ? 1 : d <= 21 ? 2 : 3; }
+
+function load() {
+  try { const s = localStorage.getItem(KEY_DAYS); if (s) appData = JSON.parse(s); } catch(e) {}
+  try { const s = localStorage.getItem(KEY_MARKERS); if (s) markersData = JSON.parse(s); } catch(e) {}
+  loadMarkerFields();
+  selectDay(1);
+  updateProgress();
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+async function saveDay() {
+  const btn = document.getElementById('save-btn');
+  btn.disabled = true;
+  btn.textContent = 'Guardando…';
+  const d = selectedDay;
+  if (!appData[d]) appData[d] = {};
+  appData[d].vitals = {
+    energia: +document.getElementById('sl-energia').value,
+    mental: +document.getElementById('sl-mental').value,
+    ansiedad: +document.getElementById('sl-ansiedad').value,
+    sueno: +document.getElementById('sl-sueno').value
+  };
+  appData[d].hambre = document.getElementById('m-hambre').value;
+  appData[d].pasos = document.getElementById('m-pasos').value;
+  appData[d].note = document.getElementById('day-note').value;
+  appData[d].saved = true;
+  localStorage.setItem(KEY_DAYS, JSON.stringify(appData));
+  toast('Día ' + d + ' guardado');
+  updateProgress();
+  buildGrid(currentFilter);
+  btn.disabled = false;
+  btn.textContent = 'Guardar día';
+}
+
+function saveMarkers() {
+  markersData = {
+    tghdl: document.getElementById('mk-tghdl').value,
+    hba1c: document.getElementById('mk-hba1c').value,
+    insulina: document.getElementById('mk-insulina').value,
+    pcr: document.getElementById('mk-pcr').value,
+    aaepa: document.getElementById('mk-aaepa').value,
+    peso: document.getElementById('mk-peso').value,
+    cintura: document.getElementById('mk-cintura').value
+  };
+  localStorage.setItem(KEY_MARKERS, JSON.stringify(markersData));
+  toast('Marcadores guardados');
+}
+
+function loadMarkerFields() {
+  ['tghdl','hba1c','insulina','pcr','aaepa','peso','cintura'].forEach(f => {
+    const el = document.getElementById('mk-' + f);
+    if (el && markersData[f]) el.value = markersData[f];
+  });
+}
+
+function exportData() {
+  let txt = 'ZONE TRACKER — EXPORTACIÓN DE DATOS\n';
+  txt += new Date().toLocaleDateString('es-MX') + '\n\n';
+  txt += '=== MARCADORES DE LABORATORIO ===\n';
+  txt += 'TG/HDL: ' + (markersData.tghdl || '—') + '\n';
+  txt += 'HbA1c: ' + (markersData.hba1c || '—') + '\n';
+  txt += 'Insulina: ' + (markersData.insulina || '—') + '\n';
+  txt += 'PCR: ' + (markersData.pcr || '—') + '\n';
+  txt += 'AA/EPA: ' + (markersData.aaepa || '—') + '\n';
+  txt += 'Peso: ' + (markersData.peso || '—') + '\n';
+  txt += 'Cintura: ' + (markersData.cintura || '—') + '\n\n';
+  txt += '=== REGISTRO DIARIO ===\n';
+  for (let d = 1; d <= 30; d++) {
+    const r = appData[d];
+    if (!r || !r.saved) continue;
+    const ph = getPhase(d);
+    txt += '\nDía ' + d + ' (' + phaseMap[ph].name + ')\n';
+    if (r.vitals) {
+      txt += '  Energía: ' + r.vitals.energia + '/10  Claridad: ' + r.vitals.mental + '/10  Ansiedad: ' + r.vitals.ansiedad + '/10  Sueño: ' + r.vitals.sueno + '/10\n';
+    }
+    if (r.hambre) txt += '  Hambre: ' + r.hambre + '/10\n';
+    if (r.pasos) txt += '  Pasos: ' + r.pasos + '\n';
+    if (r.note) txt += '  Nota: ' + r.note + '\n';
+    const checks = r.checks || [];
+    const cl = checklists[ph];
+    const done = checks.filter(Boolean).length;
+    txt += '  Protocolos: ' + done + '/' + cl.length + '\n';
+  }
+  const blob = new Blob([txt], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'zone-tracker-datos.txt';
+  a.click();
+  URL.revokeObjectURL(url);
+  toast('Datos exportados');
+}
+
+function updateProgress() {
+  const done = Object.values(appData).filter(r => r.saved).length;
+  document.getElementById('days-done').textContent = done + ' / 30';
+  document.getElementById('prog-fill').style.width = Math.round((done / 30) * 100) + '%';
+  document.getElementById('top-prog').style.width = Math.round((done / 30) * 100) + '%';
+  document.getElementById('h-done').textContent = done;
+
+  let streak = 0;
+  for (let d = selectedDay; d >= 1; d--) {
+    if (appData[d] && appData[d].saved) streak++;
+    else break;
+  }
+  document.getElementById('h-streak').textContent = streak;
+
+  const ph = getPhase(selectedDay);
+  document.getElementById('phase-stat').textContent = phaseMap[ph].name + ' · ' + (30 - done) + ' días restantes';
+}
+
+function buildGrid(filter) {
+  const grid = document.getElementById('day-grid');
+  grid.innerHTML = '';
+  for (let d = 1; d <= 30; d++) {
+    const ph = getPhase(d);
+    if (filter > 0 && ph !== filter) {
+      const sp = document.createElement('div');
+      sp.style.display = 'none';
+      grid.appendChild(sp);
+      continue;
+    }
+    const rec = appData[d] || {};
+    const checks = rec.checks || [];
+    const cl = checklists[ph];
+    const filled = checks.filter(Boolean).length;
+
+    const card = document.createElement('div');
+    card.className = 'day-card ph' + ph + (d === selectedDay ? ' active-day' : '') + (rec.saved ? ' saved' : '');
+    card.onclick = () => selectDay(d);
+
+    const scoreHtml = rec.saved
+      ? `<div class="day-score">${Math.round((filled / cl.length) * 10)}<span style="font-size:9px;color:var(--text-tertiary)">/10</span></div>`
+      : `<div class="day-score empty">—</div>`;
+
+    const dotsHtml = cl.map((_, i) => `<div class="dot${checks[i] ? ' on' : ''}"></div>`).join('');
+    card.innerHTML = `<div class="day-num">D${d}</div>${scoreHtml}<div class="day-dots">${dotsHtml}</div>`;
+    grid.appendChild(card);
+  }
+}
+
+function selectDay(d) {
+  selectedDay = d;
+  const ph = getPhase(d);
+  document.getElementById('sel-title').textContent = 'Día ' + d;
+  document.getElementById('sel-phase').textContent = phaseMap[ph].name;
+
+  const rec = appData[d] || {};
+  const checks = rec.checks || [];
+  const cl = checklists[ph];
+
+  document.getElementById('checklist').innerHTML = cl.map((item, i) => `
+    <div class="check-item" onclick="toggleCheck(${d},${i})">
+      <div class="check-box${checks[i] ? ' checked' : ''}"></div>
+      <span class="check-label">${item}</span>
+    </div>
+  `).join('');
+
+  const vitals = rec.vitals || {};
+  ['energia', 'mental', 'ansiedad', 'sueno'].forEach(k => {
+    const sl = document.getElementById('sl-' + k);
+    const lb = document.getElementById('lbl-' + k);
+    const v = vitals[k] || 5;
+    sl.value = v; lb.textContent = v;
+    sl.oninput = () => lb.textContent = sl.value;
+  });
+
+  document.getElementById('m-hambre').value = rec.hambre || '';
+  document.getElementById('m-pasos').value = rec.pasos || '';
+  document.getElementById('day-note').value = rec.note || '';
+
+  buildGrid(currentFilter);
+  updateProgress();
+}
+
+function toggleCheck(d, i) {
+  if (!appData[d]) appData[d] = {};
+  if (!appData[d].checks) appData[d].checks = [];
+  appData[d].checks[i] = !appData[d].checks[i];
+  selectDay(d);
+}
+
+function filterPhase(n) {
+  currentFilter = n;
+  document.querySelectorAll('.ptab').forEach((t, i) => t.classList.toggle('active', i === n));
+  buildGrid(n);
+}
+
+load();
+</script>
+</body>
+</html>
